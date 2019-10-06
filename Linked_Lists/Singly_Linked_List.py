@@ -220,10 +220,12 @@ node5 = Node(5)
 # create linked list object
 ll = LinkedList()
 
+# add nodes to linked list
 ll.addNode(node1)
 ll.addNode(node2)
 ll.addNode(node3)
 ll.addNode(node4)
 ll.addNode(node5)
 
+# print linked list
 ll.print_list()
