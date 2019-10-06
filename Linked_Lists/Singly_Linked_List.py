@@ -1,15 +1,18 @@
 class Node:
 
+    # constructor
     def __init__(self, data):
         self.data = data
         self.next = None
 
+    # setter and getter for the data
     def set_data(self, data):
         self.data = data
 
     def get_data(self):
         return self.data
 
+    # setter and getter for the next
     def set_next(self, next):
         self.next = next
 
@@ -22,10 +25,12 @@ class Node:
 
 class LinkedList(object):
 
+    # constructor
     def __init__(self):
         self.length = 0
         self.head = None
 
+    # add a node at beginning or end of linked list
     def addNode(self, node):
         if self.length == 0:
             self.addBeg(node)
@@ -50,6 +55,7 @@ class LinkedList(object):
         current.next = newNode
         self.length += 1
 
+    # add at specific position of linked list
     def addAtPos(self, pos, node):
         current = self.head
         prev = self.head
@@ -70,6 +76,7 @@ class LinkedList(object):
                     prev = current
                     current = current.next
 
+    # add after specific value of linked list
     def addAfterValue(self, data, node):
         newNode = node
         current = self.head
@@ -83,6 +90,7 @@ class LinkedList(object):
             else:
                 current = current.next
 
+    # delete head node
     def deleteBeg(self):
         if self.length == 0:
             print("List is empty")
@@ -91,6 +99,7 @@ class LinkedList(object):
             self.head = current.next
             self.length -= 1
 
+    # delete tail node
     def deleteLast(self):
 
         if self.length == 0:
@@ -106,6 +115,7 @@ class LinkedList(object):
             prev.next = None
             self.length -= 1
 
+    # delete node at particular position
     def deletAtPos(self, pos):
         count = 0
 
@@ -129,6 +139,7 @@ class LinkedList(object):
                     prev = current
                     current = current.next
 
+    # delete if node data matches a value
     def deleteVal(self, data):
 
         prev = self.head
@@ -150,9 +161,11 @@ class LinkedList(object):
                     prev = current
                     current = current.next
 
+    # get length
     def getLength(self):
         return self.length
 
+    # get head node data
     def getFirst(self):
         if self.length == 0:
             print("List Empty")
@@ -170,6 +183,7 @@ class LinkedList(object):
 
             return current.data
 
+    # get data a specific position
     def getAtPos(self, pos):
         count = 0
 
@@ -184,6 +198,7 @@ class LinkedList(object):
                 else:
                     current = current.next
 
+    # print linked list data
     def print_list(self):
         nodeList = []
         current = self.head
@@ -195,12 +210,14 @@ class LinkedList(object):
         print(nodeList)
 
 
+# specify the nodes
 node1 = Node(1)
 node2 = Node(2)
 node3 = Node(3)
 node4 = Node(4)
 node5 = Node(5)
 
+# create linked list object
 ll = LinkedList()
 
 ll.addNode(node1)
