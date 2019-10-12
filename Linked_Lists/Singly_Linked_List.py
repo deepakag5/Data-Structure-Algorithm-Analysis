@@ -228,4 +228,4 @@ ll.addNode(node4)
 ll.addNode(node5)
 
 # print linked list
-ll.print_list()
+# ll.print_list()
