@@ -43,13 +43,18 @@ class Linked_List:
 
         print(nodeList)
 
+    # function to find nth node from end
+
     def nth_node_from_end(self, n):
+
+        # check base case if n is negative return none
         if n < 0:
             return None
 
         length = 0
         temp = self.head
 
+        # find he length of linked list by traversing through it
         while temp is not None:
             temp = temp.next
             length += 1
@@ -59,6 +64,7 @@ class Linked_List:
 
         current = self.head
 
+        # traverse till length-nth position and print the data
         for i in range(0, length - n):
             current = current.next
 
