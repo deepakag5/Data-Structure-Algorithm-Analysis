@@ -64,6 +64,27 @@ class Linked_List:
 
         print(current.data)
 
+    def nth_node_from_end_twoPtr(self, n):
+        current = self.head
+        nth = self.head
+
+        count = 0
+        if self.head is not None:
+            while count < n:
+                if current is None:
+                    print("n is greater than number of nodes in the list")
+
+                current = current.next
+                count += 1
+
+        while current is not None:
+            current = current.next
+            nth = nth.next
+
+        print(nth.data)
+
+
+
 
 # specify the nodes
 node1 = Node(1)
@@ -85,4 +106,7 @@ ll.addNode(node5)
 # print linked list
 ll.print_list()
 
+# print nth node from end of linked list
 ll.nth_node_from_end(4)
+
+ll.nth_node_from_end_twoPtr(4)
