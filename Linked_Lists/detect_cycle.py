@@ -57,6 +57,7 @@ class Linked_List:
     def detectCycleStart(self):
         if self.head == None or self.head.next == None:
             return None
+
         slow = self.head.next
         fast = slow.next
 
@@ -65,10 +66,11 @@ class Linked_List:
             try:
                 fast = fast.next.next
             except AttributeError:
-                return None
+                return None  # no cycle if NoneType returned
 
         slow = self.head
 
+        # increment both slow (from start node) and fast (from where it met slow)
         while slow != fast:
             slow = slow.next
             fast = fast.next
@@ -91,10 +93,11 @@ class Linked_List:
             try:
                 fast = fast.next.next
             except AttributeError:
-                return 0
+                return 0  # no cycle if 0 returned
 
         slow = self.head
 
+        # increment both slow (from start node) and fast (from where it met slow)
         while slow != fast:
             slow = slow.next
             fast = fast.next
