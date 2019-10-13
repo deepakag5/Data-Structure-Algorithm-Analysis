@@ -41,3 +41,28 @@ class Linked_List:
             current = current.next
 
         print(nodeList)
+
+    def orderdIns(self, item):
+        current = self.head
+        stop = False
+        prev = None
+
+        while current is not None and not stop:
+            if current.get_data() > item:
+                stop = True
+            else:
+                prev = current
+                current = current.next
+
+        temp = Node(item)
+
+        # check if there is only one node present then it's same as insert at beg
+        if prev is None:
+            temp.next = self.head
+            self.head = temp
+            self.length += 1
+        # otherwise it's same as inserting the node at specific position
+        else:
+            prev.next = temp
+            temp.next = current
+            self.length += 1
