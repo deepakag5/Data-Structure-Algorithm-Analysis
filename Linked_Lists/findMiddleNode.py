@@ -33,6 +33,15 @@ class Linked_List(LinkedList):
 
         return 0
 
+    def printListFromEnd(self, llist):
+        if llist is None:
+            return None
+        head = llist
+        tail = head.next
+
+        # call the function recursively to reach till the end
+        self.printListFromEnd(tail)
+        print(head.get_data())
 
 node1 = Node(1)
 node2 = Node(2)
@@ -57,3 +66,5 @@ print(ll.findMiddle().get_data())
 
 # find if given linked list is of even length or odd
 print(ll.isLinkedListLengthEven())
+
+print(ll.printListFromEnd(ll.head))
