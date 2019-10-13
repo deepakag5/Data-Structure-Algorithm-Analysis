@@ -21,12 +21,25 @@ class Linked_List(LinkedList):
 
         return slow_p
 
+    def isLinkedListLengthEven(self):
+        fast_p = self.head
+
+        # if linked list length is even the fast pointer will become NoneType if not then the length will be odd
+        while fast_p is not None and fast_p.next is not None:
+            fast_p = fast_p.next.next
+
+            if fast_p is None:
+                return 1
+
+        return 0
+
 
 node1 = Node(1)
 node2 = Node(2)
 node3 = Node(3)
 node4 = Node(4)
 node5 = Node(5)
+node6 = Node(6)
 
 # create linked list object
 ll = Linked_List()
@@ -37,6 +50,10 @@ ll.addNode(node2)
 ll.addNode(node3)
 ll.addNode(node4)
 ll.addNode(node5)
+ll.addNode(node6)
 
 # reverse the list in place
 print(ll.findMiddle().get_data())
+
+# find if given linked list is of even length or odd
+print(ll.isLinkedListLengthEven())
