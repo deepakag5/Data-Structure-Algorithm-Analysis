@@ -8,6 +8,8 @@ class Linked_List(LinkedList):
         fast_p = self.head
         slow_p = self.head
 
+        # we will take two pointers, the fast pointer will reach either NoneType when we increment by 2 places
+        # at that time the slow ptr will be at exactly middle of the linked list
         while fast_p is not None:
             fast_p = fast_p.next
 
