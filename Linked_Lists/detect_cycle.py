@@ -75,6 +75,32 @@ class Linked_List:
 
         return slow
 
+    def findLoopLength(self):
+
+        loopLength = 0
+
+        if self.head == None or self.head.next == None:
+            return 0
+
+        slow = self.head.next
+        fast = slow.next
+
+        while slow != fast:
+            slow = slow.next
+
+            try:
+                fast = fast.next.next
+            except AttributeError:
+                return 0
+
+        slow = self.head
+
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+            loopLength += 1
+
+        return loopLength
 
 # specify the nodes
 node1 = Node(1)
@@ -101,3 +127,6 @@ print(ll.detectCycle())
 
 # print the node where the loop starts if cycle exists
 print(ll.detectCycleStart().get_data())
+
+# find the loop length
+print(ll.findLoopLength())
