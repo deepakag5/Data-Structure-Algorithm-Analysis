@@ -54,6 +54,27 @@ class Linked_List:
             if slow_p == fast_p:
                 return True
 
+    def detectCycleStart(self):
+        if self.head == None or self.head.next == None:
+            return None
+        slow = self.head.next
+        fast = slow.next
+
+        while slow != fast:
+            slow = slow.next
+            try:
+                fast = fast.next.next
+            except AttributeError:
+                return None
+
+        slow = self.head
+
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+
+        return slow
+
 
 # specify the nodes
 node1 = Node(1)
@@ -77,3 +98,6 @@ ll.head.next.next.next.next.next = ll.head
 
 # will print True if there is cycle in linked list
 print(ll.detectCycle())
+
+# print the node where the loop starts if cycle exists
+print(ll.detectCycleStart().get_data())
