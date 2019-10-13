@@ -27,7 +27,7 @@ class Linked_List:
 
         current = self.head
         while current.next is not None:
-            current = current, next
+            current = current.next
 
         current.next = newNode
         self.length += 1
@@ -66,3 +66,33 @@ class Linked_List:
             prev.next = temp
             temp.next = current
             self.length += 1
+
+
+# specify the nodes
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+node5 = Node(5)
+
+# create linked list object
+ll = Linked_List()
+
+# add nodes to linked list
+ll.addNode(node1)
+ll.addNode(node2)
+ll.addNode(node3)
+ll.addNode(node4)
+ll.addNode(node5)
+
+# add one node at last
+ll.orderdIns(6)
+
+# add one node at begining
+ll.orderdIns(0)
+
+# add one node in between
+ll.orderdIns(2.5)
+
+# print the updated list
+ll.printList()
