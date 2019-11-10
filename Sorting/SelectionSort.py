@@ -1,22 +1,25 @@
 
-# coding: utf-8
-
-# In[ ]:
-
-
 def selection_sort(arr):
-    
-    # For every slot in array
-    for fillslot in range(len(arr)-1,0,-1):
-        positionOfMax=0
-        
-        # For every set of 0 to fillslot+1
-        for location in range(1,fillslot+1):
-            # Set maximum's location
-            if arr[location]>arr[positionOfMax]:
-                positionOfMax = location
+    for i in range(len(arr)):
+        least = i
 
-        temp = arr[fillslot]
-        arr[fillslot] = arr[positionOfMax]
-        arr[positionOfMax] = temp
+        # if the current element is less the element at least index then reassign the least
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[least]:
+                least = j
+        # swap the least with the element at earlier index
+        swap(arr, least, i)
 
+
+def swap(arr, x, y):
+    # swap the elements
+    temp = arr[x]
+    arr[x] = arr[y]
+    arr[y] = temp
+
+
+arr = [3, 2, 5, 6, 8, 1]
+
+selection_sort(arr)
+
+print(arr)
