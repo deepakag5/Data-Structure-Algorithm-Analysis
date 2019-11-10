@@ -20,6 +20,7 @@ def swap(arr, x, y):
 
 arr = [3, 2, 5, 6, 8, 1]
 
+# sort the array
 selection_sort(arr)
 
 print(arr)
