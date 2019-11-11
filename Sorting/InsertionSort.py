@@ -1,23 +1,19 @@
-
-# coding: utf-8
-
-# In[ ]:
-
-
 def insertion_sort(arr):
-    
-    # For every index in array
-    for i in range(1,len(arr)):
-        
-        # Set current values and position
-        currentvalue = arr[i]
+    for i in range(len(arr)):
+        # create a temp variable to store current value
+        temp = arr[i]
         position = i
-        
-        # Sorted Sublist
-        while position>0 and arr[position-1]>currentvalue:
-            
-            arr[position]=arr[position-1]
-            position = position-1
 
-        arr[position]=currentvalue
+        # keep swapping the elements until the previous element is greater than the element at position
+        while position > 0 and temp < arr[position - 1]:
+            arr[position] = arr[position - 1]
+            position -= 1
 
+        arr[position] = temp
+
+
+arr = [3, 1, 8, 6, 2]
+
+insertion_sort(arr)
+
+print(arr)
