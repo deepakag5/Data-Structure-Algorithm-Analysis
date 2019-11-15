@@ -1,5 +1,5 @@
 def insertion_sort(arr):
-    for i in range(len(arr)):
+    for i in range(1,len(arr)):
         # create a temp variable to store current value
         temp = arr[i]
         position = i
