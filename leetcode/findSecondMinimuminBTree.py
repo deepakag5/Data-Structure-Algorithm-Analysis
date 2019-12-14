@@ -23,3 +23,22 @@ def findSecondMin(root):
             second_min = val
 
     return second_min if second_min < float('inf') else -1
+
+
+def findSecondMinOptimumSol(self, root):
+    self.second_min = float('inf')
+    min_val = root.val
+
+    def traverse(node):
+        if not node:
+            return
+
+        if min_val < node.val < self.second_min:
+            self.second_min = node.val
+        elif node.val == min_val:
+            traverse(node.left)
+            traverse(node.right)
+
+    traverse(root)
+
+    return self.second_min if self.second_min < float('inf') else -1
