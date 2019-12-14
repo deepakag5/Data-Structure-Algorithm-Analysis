@@ -1,4 +1,11 @@
 def findLCARecursive(root, n1, n2):
+    """
+        :param root: TreeNode
+        :param n1: val[int]
+        :param n2: val[int]
+        :return: TreeNode
+    """
+
     if root is None:
         return None
 
@@ -12,6 +19,14 @@ def findLCARecursive(root, n1, n2):
 
 
 def findLCAIterative(root, n1, n2):
+    """
+        :param root: TreeNode
+        :param n1: val[int]
+        :param n2: val[int]
+        :return: TreeNode
+    """
+
+
     if root is None:
         return None
 
