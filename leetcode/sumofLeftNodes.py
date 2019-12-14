@@ -12,6 +12,7 @@ def sumofleftnodesBinaryTree(root):
         node = stack.pop()
 
         if node.left is not None:
+            stack.append(node.left)
             lsum += node.val
 
         if node.right is not None:
