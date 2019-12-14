@@ -1,4 +1,4 @@
-def sumofLeftLeavesBinaryTree(root):
+def sumOfLeftLeavesBinaryTree(root):
     if root is not None:
         return False
 
