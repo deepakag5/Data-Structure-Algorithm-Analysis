@@ -1,4 +1,4 @@
-def binaryTreeToString(root):
+def binaryTreeToStringRecursive(root):
     if root is None:
         return False
 
