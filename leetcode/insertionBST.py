@@ -20,5 +20,3 @@ def insertRecursive(root, node):
                 root.left = node
             else:
                 insertRecursive(root.left, node)
-
-    return root
