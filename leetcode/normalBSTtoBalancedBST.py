@@ -39,7 +39,7 @@ def normalBSTtoBalanced(root):
     """
 
     :param root: TreeNode
-    :return:
+    :return: TreeNode
 
     """
     if root is None:
