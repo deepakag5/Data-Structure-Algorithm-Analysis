@@ -1,4 +1,11 @@
 def sortedBSTNodes(root, nodes):
+    """
+
+    :param root: TreeNode
+    :param nodes: [list]
+    :return:
+
+    """
     if root is None:
         return None
 
@@ -8,6 +15,14 @@ def sortedBSTNodes(root, nodes):
 
 
 def convertBSTtoBalanced(nodes, start, end):
+    """
+
+    :param nodes: TreeNode [list]
+    :param start: int
+    :param end: int
+    :return: TreeNode
+
+    """
     if start > end:
         return None
 
@@ -21,6 +36,12 @@ def convertBSTtoBalanced(nodes, start, end):
 
 
 def normalBSTtoBalanced(root):
+    """
+
+    :param root: TreeNode
+    :return:
+
+    """
     if root is None:
         return None
 
