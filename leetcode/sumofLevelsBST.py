@@ -21,7 +21,7 @@ def calculateHeight(root):
 def calculateLevelSum(node, level, sum_level):
     """
     :param root: TreeNode
-    :return:
+    :return: [list]
     """
     if node is None:
         return
