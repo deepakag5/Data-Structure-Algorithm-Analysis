@@ -3,12 +3,14 @@ def countPairs(root, given_sum):
     stack1 = []
     stack2 = []
 
+    # initialize forward iterator
     node = root
 
     while node is not None:
         stack1.append(node)
         node = node.left
 
+    # initialize backward iterator
     node = root
 
     while node is not None:
@@ -17,10 +19,15 @@ def countPairs(root, given_sum):
 
     total_pairs = 0
 
+    # two pointers iterate until they point to the same node
     while stack1[-1] != stack2[-1]:
+
+        # Variables to store the value of the nodes
+        # current iterators are pointing to
         v1 = stack1[-1].val
         v2 = stack2[-1].val
 
+        # if we find a pair that's equivalent to desired sum increment the count
         if (v1 + v2) == given_sum:
             total_pairs += 1
 
@@ -30,6 +37,7 @@ def countPairs(root, given_sum):
             while node is not None:
                 stack1.append(node)
                 node = node.left
+
         else:
             node = stack2[-1].left
             stack2.pop()
