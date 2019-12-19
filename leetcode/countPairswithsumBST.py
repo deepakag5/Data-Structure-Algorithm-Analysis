@@ -34,7 +34,8 @@ def countPairs(root, given_sum):
         v1 = stack1[-1].val
         v2 = stack2[-1].val
 
-        # if we find a pair that's equivalent to desired sum increment the count
+        # if we find a pair that's equivalent to
+        # desired sum increment the count
         if (v1 + v2) == given_sum:
             total_pairs += 1
 
