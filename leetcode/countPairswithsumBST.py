@@ -1,4 +1,11 @@
 def countPairs(root, given_sum):
+    """
+    :param root: TreeNode
+    :param given_sum: int
+    :return: int
+    """
+
+
     # two stacks to store nodes for forward and backward iterator
     stack1 = []
     stack2 = []
@@ -31,13 +38,14 @@ def countPairs(root, given_sum):
         if (v1 + v2) == given_sum:
             total_pairs += 1
 
+        # moving forward iterator
         if (v1 + v2) <= given_sum:
             node = stack1[-1].right
             stack1.pop()
             while node is not None:
                 stack1.append(node)
                 node = node.left
-
+        # moving backward iterator
         else:
             node = stack2[-1].left
             stack2.pop()
@@ -45,4 +53,5 @@ def countPairs(root, given_sum):
                 stack2.append(node)
                 node = node.right
 
+    # return total pairs found
     return total_pairs
