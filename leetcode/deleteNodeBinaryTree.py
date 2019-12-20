@@ -1,4 +1,10 @@
 def deletedeepestNode(root, deep_node):
+    """
+
+    :param root: TreeNode
+    :param deep_node: TreeNode
+    :return: None
+    """
     queue = []
     queue.append(root)
 
