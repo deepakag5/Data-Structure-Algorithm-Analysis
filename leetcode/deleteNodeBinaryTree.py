@@ -1,6 +1,5 @@
 def deletedeepestNode(root, deep_node):
     """
-
     :param root: TreeNode
     :param deep_node: TreeNode
     :return: None
@@ -29,6 +28,12 @@ def deletedeepestNode(root, deep_node):
 
 
 def deleteNode(root, key):
+    """
+    :param root: TreeNode
+    :param key: int
+    :return: TreeNode
+    """
+
     if root is None:
         return None
 
