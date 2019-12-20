@@ -8,7 +8,7 @@ def deletedeepestNode(root, deep_node):
     queue = []
     queue.append(root)
 
-    while len(q):
+    while len(queue):
         temp = queue.pop(0)
         if temp is deep_node:
             temp = None
@@ -26,3 +26,34 @@ def deletedeepestNode(root, deep_node):
                 return
             else:
                 queue.append(temp.left)
+
+
+def deleteNode(root, key):
+    if root is None:
+        return None
+
+    if root.left is None and root.right is None:
+        if root.val == key:
+            return None
+        else:
+            return root
+
+    key_node = None
+    queue = []
+    queue.append(root)
+
+    while len(queue):
+        temp = queue.pop(0)
+        if temp.val == key:
+            key_node = temp
+        if temp.left:
+            queue.append(temp.left)
+        if temp.right:
+            queue.append(temp.right)
+
+    if key_node:
+        x = temp.val
+        deletedeepestNode(root, temp)
+        key_node.val = x
+
+    return root
