@@ -55,6 +55,7 @@ def deletedeepestNode(root, deep_node):
         if temp is deep_node:
             temp = None
             return
+
         if temp.right:
             if temp.right is deep_node:
                 temp.right = None
