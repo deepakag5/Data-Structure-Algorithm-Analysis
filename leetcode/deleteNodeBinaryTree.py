@@ -14,7 +14,7 @@ def deleteNode(root, key):
         else:
             return root
 
-    # create a placeholder for node to be deleted
+    # create a placeholder for node to be deleted (replaced with the data for deepest node)
     key_node = None
     queue = []
     queue.append(root)
