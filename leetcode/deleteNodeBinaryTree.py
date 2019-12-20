@@ -30,7 +30,6 @@ def deleteNode(root, key):
             queue.append(temp.right)
 
     # if node is found (meaning key_node is not None)
-
     if key_node:
         x = temp.val  # save the value of rightmost/deepest node (temp) found by above traversal
         deletedeepestNode(root, temp)  # delete the deepest node
