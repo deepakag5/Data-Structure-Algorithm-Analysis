@@ -1,4 +1,9 @@
 def constructTreeRecursive(inorder, postorder):
+    """
+    :param inorder: list
+    :param postorder: list
+    :return: TreeNode
+    """
     if not inorder or not postorder:
         return None
 
