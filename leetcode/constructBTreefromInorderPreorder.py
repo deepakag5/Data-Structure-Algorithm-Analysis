@@ -25,14 +25,11 @@ def constructTreeRecursiveOptimized(preorder, inorder):
     for i, num in enumerate(inorder):
         inorder_map[num] = i
 
-    preorder_iter = iter(preorder)
-
     def constructTree(start, end):
         if start > end:
             return None
-        root_val = next(preorder_iter)
-        root = Node(root_val)
-        ind = inorder_map[root_val]
+        root = Node(preorder.pop(0))
+        ind = inorder_map[root.val]
         root.left = constructTree(start, ind - 1)
         root.right = constructTree(ind + 1, end)
         return root
