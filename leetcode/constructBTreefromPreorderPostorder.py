@@ -47,6 +47,11 @@ def constructTreeRecursiveOptimized(preorder, postorder):
 
 
 def constructTreeIterative(preorder, postorder):
+    """
+    :param preorder: list
+    :param postorder: list
+    :return: TreeNode
+    """
     stack = [Node(preorder[0])]
     posIndex = 0
     for pre_val in preorder[1:]:
