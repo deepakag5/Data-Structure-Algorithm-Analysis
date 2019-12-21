@@ -13,3 +13,21 @@ def constructTreeRecursive(inorder, postorder):
     root.left = constructTreeRecursive(inorder[:ind], postorder)
 
     return root
+
+
+def constructTreeRecursiveOptimized(inorder, postorder):
+    inorder_map = {}
+    for i, num in enumerate(inorder):
+        inorder_map[num] = i
+
+    def constructTree(start, end):
+        if start > end:
+            return None
+        root = Node(postorder.pop())
+        ind = inorder_map[root.val]
+        root.right = constructTree(ind + 1, end)
+        root.left = constructTree(start, ind - 1)
+
+        return root
+
+    return constructTree(0, len(inorder) - 1)
