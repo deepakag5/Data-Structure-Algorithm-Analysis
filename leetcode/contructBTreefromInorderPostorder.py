@@ -16,6 +16,12 @@ def constructTreeRecursive(inorder, postorder):
 
 
 def constructTreeRecursiveOptimized(inorder, postorder):
+    """
+    :param inorder: list
+    :param postorder: list
+    :return: TreeNode
+    """
+    # use unordered map to find the index in O(1) time
     inorder_map = {}
     for i, num in enumerate(inorder):
         inorder_map[num] = i
