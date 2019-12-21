@@ -44,3 +44,19 @@ def constructTreeRecursiveOptimized(preorder, postorder):
             return root
 
     return constructTree(0, len(preorder) - 1, 0, len(postorder) - 1)
+
+
+def constructTreeIterative(preorder, postorder):
+    stack = [Node(preorder[0])]
+    posIndex = 0
+    for pre_val in preorder[1:]:
+        node = Node(pre_val)
+        while stack[-1].val == postorder[posIndex]:
+            stack.pop()
+            posIndex += 1
+        if not stack[-1].left:
+            stack[-1].left = node
+        else:
+            stack[-1].right = node
+        stack.append(node)
+    return stack[0]
