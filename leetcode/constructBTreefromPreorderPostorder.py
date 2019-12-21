@@ -1,4 +1,9 @@
 def constructTreeRecursive(preorder, postorder):
+    """
+    :param preorder: list
+    :param postorder: list
+    :return: TreeNode
+    """
     if not postorder:
         return None
     elif len(postorder) == 1:
@@ -12,6 +17,11 @@ def constructTreeRecursive(preorder, postorder):
 
 
 def constructTreeRecursiveOptimized(preorder, postorder):
+    """
+    :param preorder: list
+    :param postorder: list
+    :return: TreeNode
+    """
     postorder_map = {}
     for i, num in enumerate(postorder):
         postorder_map[num] = i
