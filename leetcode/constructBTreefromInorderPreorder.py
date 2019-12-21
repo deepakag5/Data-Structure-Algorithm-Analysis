@@ -32,6 +32,7 @@ def constructTreeRecursiveOptimized(preorder, inorder):
         ind = inorder_map[root.val]
         root.left = constructTree(start, ind - 1)
         root.right = constructTree(ind + 1, end)
+
         return root
 
     return constructTree(0, len(inorder) - 1)
