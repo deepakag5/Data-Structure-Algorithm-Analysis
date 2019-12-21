@@ -14,6 +14,13 @@ def constructTreeRecursive(preorder, inorder):
 
 
 def constructTreeRecursiveOptimized(preorder, inorder):
+    """
+    :param preorder: list
+    :param inorder: list
+    :return: TreeNode
+    """
+    # we will use unordered map (dict) to save the inorder list
+    # so that we can access it in O(1) time
     inorder_map = {}
     for i, num in enumerate(inorder):
         inorder_map[num] = i
