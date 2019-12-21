@@ -9,3 +9,24 @@ def constructTreeRecursive(preorder, postorder):
         root.left = constructTreeRecursive(preorder, postorder[:pos + 1])
         root.right = constructTreeRecursive(preorder, postorder[pos + 1:-1])
         return root
+
+
+def constructTreeRecursiveOptimized(preorder, postorder):
+    postorder_map = {}
+    for i, num in enumerate(postorder):
+        postorder_map[num] = i
+
+    def constructTree(prestart, preend, poststart, postend):
+        if prestart > preend:
+            return None
+        elif prestart == preend:
+            return Node(preorder[prestart])
+        else:
+            root = Node(preorder[prestart])
+            left_val = preorder[prestart + 1]
+            left_len = postorder_map[left_val] - poststart + 1
+            root.left = constructTree(prestart + 1, prestart + left_len, poststart, poststart + left_len - 1)
+            root.right = constructTree(prestart + left_len + 1, preend, poststart + left_len, postend - 1)
+            return root
+
+    return constructTree(0, len(preorder) - 1, 0, len(postorder) - 1)
