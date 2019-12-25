@@ -1,5 +1,6 @@
 def placeflowers(flowerbed, n):
-    if n>=len(flowerbed):
+    # there could be case where flowerbed = [0] then we can place 1
+    if n>len(flowerbed):
         return False
 
     i, count = 0, 0
@@ -18,7 +19,8 @@ def placeflowers(flowerbed, n):
 
 
 def placeflowersOptimized(flowerbed, n):
-    if n>=len(flowerbed):
+    # there could be case where flowerbed = [0] then we can place 1
+    if n>len(flowerbed):
         return False
 
     i, count = 0, 0
