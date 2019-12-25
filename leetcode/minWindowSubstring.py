@@ -80,6 +80,7 @@ def minWindowOptimized(s, t):
 
     left, right = 0, 0
 
+    # create a list to keep track of position and characters in required string
     filtered_s = []
 
     for i, char in enumerate(s):
