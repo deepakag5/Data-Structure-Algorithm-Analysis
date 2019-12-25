@@ -16,3 +16,5 @@ def isIsomorphic(s, t):
     return sorted(d1.values())==sorted(d2.values())
 
 
+def isIsomorphic1(s, t):
+    return len(set(zip(s,t))) == len(set(s)) == len(set(t))
