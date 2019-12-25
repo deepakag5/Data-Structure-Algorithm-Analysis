@@ -20,3 +20,14 @@ def TwoSumHash(nums, target):
         if complement in nums_dict and nums_dict.get(complement)!=i:
             return [i, nums_dict.get(complement)]
 
+
+def TwoSumHashOnePass(nums, target):
+    nums_dict = {}
+
+    for i in range(len(nums)):
+        complement = target - nums[i]
+
+        if complement in nums_dict:
+            return [nums_dict.get(complement), i]
+
+        nums_dict[nums[i]] = i
