@@ -22,7 +22,9 @@ def minWindow(s,t):
 
     l, r = 0, 0
 
-    formed = len(t)
+    req_length_t = len(t)
+
+    freq_char_t = 0
 
     ans = float('inf'), None, None
 
