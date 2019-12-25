@@ -38,5 +38,20 @@ def shortDistOptimized(words, w1, w2):
     return shortestDist
 
 
-words = ["practice", "makes", "perfect", "coding", "makes"]
-print(shortDistOptimized(words, "makes", "coding"))
+
+def shortDistOptimized1(words, w1, w2):
+    if not words or not w1 or not w2:
+        return ""
+
+    shortestDist = len(words)
+
+    index1 = [i for i in range(len(words)) if words[i]==w1]
+    index2 = [i for i in range(len(words)) if words[i]==w2]
+
+    for i in index1:
+        for j in index2:
+            distance = abs(i-j)
+            if distance<shortestDist:
+                shortestDist = distance
+
+    return shortestDist
