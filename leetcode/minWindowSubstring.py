@@ -1,17 +1,12 @@
 def minWindow(s,t):
-    # placeholders
-    # dict to hold count
-    # windows count
-    # left and right pointers
-    # formed (freq of characters)
-    # ans
 
     # base case
     if not t or not s:
-        return None
+        return ""
 
     dict_t = {}
 
+    # get freq of characters in target string
     for char in t:
         if char in dict_t:
             dict_t[char]+=1
@@ -20,37 +15,42 @@ def minWindow(s,t):
 
     windows_count = {}
 
-    l, r = 0, 0
+    req_len_t = len(t)
 
-    req_length_t = len(t)
+    completed_t = 0
 
-    freq_char_t = 0
+    left, right = 0, 0
 
-    ans = float('inf'), None, None
+    ans = (float('inf'), None, None)
 
-    while r<len(s):
-        char = s[r]
+    while right<len(s):
+        char = s[right]
 
-        windows_count[char] = windows_count.get(char, 0)+1
-
+        windows_count[char] = windows_count.get(char, 0) + 1
         if char in dict_t and windows_count[char] == dict_t[char]:
-            freq_char_t+=1
+            completed_t+=1
 
-        while l<=r and freq_char_t == req_length_t:
-            char = s[l]
+        while left<=right  and completed_t == req_len_t:
+            char = s[left]
 
-            if r-l+1 < ans[0]:
-                ans = (r-l+1, l, r)
+            if right-left+1 < ans[0]:
+                ans = (right-left+1, left, right)
 
-            windows_count[char] -= 1
+            windows_count[char] = windows_count.get(char) - 1
+            if char in dict_t and windows_count[char]<dict_t[char]:
+                completed_t-=1
 
-            if char in dict_t and windows_count[char] < dict_t[char]:
-                freq_char_t-=1
+            left+=1
 
-            l+=1
+        right+=1
 
-        r+=1
 
     return "" if ans[0] == float('inf') else s[ans[1]:ans[2]+1]
+
+
+
+
+print(minWindow("ADOBECODEBANC","ABC"))
+
 
 
