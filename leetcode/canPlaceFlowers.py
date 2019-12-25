@@ -1,4 +1,9 @@
 def placeflowers(flowerbed, n):
+    """
+    :param flowerbed: List
+    :param n: int
+    :return: boolean
+    """
     # there could be case where flowerbed = [0] then we can place 1
     if n>len(flowerbed):
         return False
@@ -19,6 +24,11 @@ def placeflowers(flowerbed, n):
 
 
 def placeflowersOptimized(flowerbed, n):
+    """
+    :param flowerbed: List
+    :param n: int
+    :return: boolean
+    """
     # there could be case where flowerbed = [0] then we can place 1
     if n>len(flowerbed):
         return False

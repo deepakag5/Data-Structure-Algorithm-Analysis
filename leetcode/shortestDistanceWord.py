@@ -1,5 +1,11 @@
 # O(n^2)
 def shortDist(words, w1, w2):
+    """
+    :param words: List
+    :param w1: str
+    :param w2: str
+    :return: int
+    """
 
     if not words or not w1 or not w2:
         return ""
@@ -18,6 +24,12 @@ def shortDist(words, w1, w2):
 
 # O(n)
 def shortDistOptimized(words, w1, w2):
+    """
+    :param words: List
+    :param w1: str
+    :param w2: str
+    :return: int
+    """
     if not words or not w1 or not w2:
         return ""
 
@@ -40,6 +52,12 @@ def shortDistOptimized(words, w1, w2):
 
 
 def shortDistOptimized1(words, w1, w2):
+    """
+    :param words: List
+    :param w1: str
+    :param w2: str
+    :return: int
+    """
     if not words or not w1 or not w2:
         return ""
 

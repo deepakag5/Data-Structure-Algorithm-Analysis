@@ -1,4 +1,8 @@
 def findtheCelebrity(n):
+    """
+    :param n: List[List]
+    :return: int
+    """
     candidate = 0
 
     # iterate the graph till we get such candidate which doesn't know previous one

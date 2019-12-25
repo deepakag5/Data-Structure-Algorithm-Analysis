@@ -1,4 +1,9 @@
 def isIsomorphic(s, t):
+    """
+    :param s: str
+    :param t: str
+    :return: boolean
+    """
     d1, d2 = {}, {}
 
     for char in s:
@@ -17,4 +22,9 @@ def isIsomorphic(s, t):
 
 
 def isIsomorphic1(s, t):
+    """
+    :param s: str
+    :param t: str
+    :return: boolean
+    """
     return len(set(zip(s,t))) == len(set(s)) == len(set(t))

@@ -1,6 +1,11 @@
 # Brute Force  - O(n^2), O(1)
 
 def TwoSum(nums, target):
+    """
+    :param nums: List
+    :param target: int
+    :return: List
+    """
     for i in range(len(nums)):
         for j in range(1, len(nums)):
             if nums[i]+nums[j] == target:
@@ -9,6 +14,12 @@ def TwoSum(nums, target):
 # Optimize using dict - O(n), O(1)
 
 def TwoSumHash(nums, target):
+   """
+   :param nums: List
+   :param target: int
+   :return: List
+   """
+
    nums_dict = {}
 
    for i in range(len(nums)):
@@ -22,6 +33,11 @@ def TwoSumHash(nums, target):
 
 
 def TwoSumHashOnePass(nums, target):
+    """
+    :param nums: List
+    :param target: int
+    :return: List
+    """
     nums_dict = {}
 
     for i in range(len(nums)):

@@ -1,4 +1,9 @@
 def minWindow(s,t):
+    """
+    :param s: str
+    :param t: str
+    :return: List
+    """
 
     # base case
     if not t or not s:
@@ -64,6 +69,11 @@ def minWindow(s,t):
 
 
 def minWindowOptimized(s, t):
+    """
+    :param s: str
+    :param t: str
+    :return: List
+    """
 
     if not t or not s:
         return ""

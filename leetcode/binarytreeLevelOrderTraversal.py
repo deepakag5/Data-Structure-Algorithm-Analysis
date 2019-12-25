@@ -1,4 +1,8 @@
 def levelOrderRecursive(root):
+    """
+    :param root: TreeNode
+    :return: List
+    """
     levels = []
 
     if not root:
@@ -24,6 +28,10 @@ def levelOrderRecursive(root):
 
 
 def levelorderIterative(root):
+    """
+    :param root: TreeNode
+    :return: List
+    """
     if not root:
         return []
 
