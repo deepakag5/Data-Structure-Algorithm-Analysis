@@ -22,11 +22,12 @@ def secondMinNodeNoSet(self, root):
     min_val, self.ans = root.val, float('inf')
 
     def dfs(node):
-        if min_val<node.val<self.ans:
-            self.ans = node.val
-        elif min_val==node.val:
-            dfs(node.left)
-            dfs(node.right)
+        if node:
+            if min_val<node.val<self.ans:
+                self.ans = node.val
+            elif min_val==node.val:
+                dfs(node.left)
+                dfs(node.right)
     dfs(root)
 
     return self.ans if self.ans<float('inf') else -1
