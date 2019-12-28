@@ -1,4 +1,4 @@
-def lowestCommonAncestor(root, p, q):
+def lowestCommonAncestorRecursive(root, p, q):
      if root is None:
          return None
 
@@ -37,25 +37,6 @@ root.right.right = Node(8)
 
 
 print(lowestCommonAncestor(root, Node(7), Node(4)).val)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
