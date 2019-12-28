@@ -36,26 +36,24 @@ def lowestCommonAncestorIterative(root, p, q):
         # Stack for tree traversal
         stack = [root]
 
-
         # Dictionary for parent pointers (child is key and parent is value)
         parent = {root: None}
 
         # Iterate until we find both the nodes p and q
         while p not in parent or q not in parent:
 
-                    node = stack.pop()
+            node = stack.pop()
 
-                    # While traversing the tree, keep saving the parent pointers.
-                    if node.left:
-                        parent[node.left] = node
-                        stack.append(node.left)
-                    if node.right:
-                        parent[node.right] = node
-                        stack.append(node.right)
+            # While traversing the tree, keep saving the parent pointers.
+            if node.left:
+                parent[node.left] = node
+                stack.append(node.left)
+            if node.right:
+                parent[node.right] = node
+                stack.append(node.right)
 
         # Ancestors set() for node p.
         ancestors = set()
-
 
         # Process all ancestors for node p using parent pointers.
         while p:
@@ -64,16 +62,12 @@ def lowestCommonAncestorIterative(root, p, q):
             # get the ancestor of current child p (remember child is key and parent is value in parent dictionary)
             p = parent[p]
 
-
         # keep getting the ancestor of q
         # The first ancestor of q which appears in
         # p's ancestor set() is their lowest common ancestor.
         while q not in ancestors:
             q = parent[q]
         return q
-
-
-
 
 
 # definition of binary tree
