@@ -4,21 +4,27 @@
 # if both the values are not present then it will return None
 
 def lowestCommonAncestorRecursive(root, p, q):
-     if root is None:
+    """
+    :param root: TreeNode
+    :param p: TreeNode
+    :param q: TreeNode
+    :return: TreeNode
+    """
+    if root is None:
          return None
 
-     if root.val == p.val or root.val == q.val:
+    if root.val == p.val or root.val == q.val:
          return root
 
-     left = lowestCommonAncestorRecursive(root.left, p, q)
-     right = lowestCommonAncestorRecursive(root.right, p, q)
+    left = lowestCommonAncestorRecursive(root.left, p, q)
+    right = lowestCommonAncestorRecursive(root.right, p, q)
 
-     if left is None:
-         return right
-     elif right is None:
-         return left
-     else:
-         return root
+    if left is None:
+        return right
+    elif right is None:
+        return left
+    else:
+        return root
 
 
 
