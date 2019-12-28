@@ -11,10 +11,10 @@ def lowestCommonAncestorRecursive(root, p, q):
     :return: TreeNode
     """
     if root is None:
-         return None
+        return None
 
-    if root.val == p.val or root.val == q.val:
-         return root
+    if root.val==p.val or root.val==q.val:
+        return root
 
     left = lowestCommonAncestorRecursive(root.left, p, q)
     right = lowestCommonAncestorRecursive(root.right, p, q)
@@ -25,6 +25,54 @@ def lowestCommonAncestorRecursive(root, p, q):
         return left
     else:
         return root
+
+def lowestCommonAncestorIterative(root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        # Stack for tree traversal
+        stack = [root]
+
+
+        # Dictionary for parent pointers (child is key and parent is value)
+        parent = {root: None}
+
+        # Iterate until we find both the nodes p and q
+        while p not in parent or q not in parent:
+
+                    node = stack.pop()
+
+                    # While traversing the tree, keep saving the parent pointers.
+                    if node.left:
+                        parent[node.left] = node
+                        stack.append(node.left)
+                    if node.right:
+                        parent[node.right] = node
+                        stack.append(node.right)
+
+        # Ancestors set() for node p.
+        ancestors = set()
+
+
+        # Process all ancestors for node p using parent pointers.
+        while p:
+            # add current node/ ancestor of p
+            ancestors.add(p)
+            # get the ancestor of current child p (remember child is key and parent is value in parent dictionary)
+            p = parent[p]
+
+
+        # keep getting the ancestor of q
+        # The first ancestor of q which appears in
+        # p's ancestor set() is their lowest common ancestor.
+        while q not in ancestors:
+            q = parent[q]
+        return q
+
+
 
 
 
@@ -45,8 +93,12 @@ root.left.right.right = Node(4)
 root.right.left = Node(0)
 root.right.right = Node(8)
 
+#print(lowestCommonAncestorRecursive(root, Node(7), Node(4)).val)
 
-print(lowestCommonAncestorRecursive(root, Node(7), Node(4)).val)
+n1 = root.left.right.left
+n2 = root.left.right.right
+
+print(lowestCommonAncestorIterative(root, n1 , n2).val)
 
 
 
@@ -58,6 +110,7 @@ print(lowestCommonAncestorRecursive(root, Node(7), Node(4)).val)
 # this is the advanced implementation which checks if both the
 # values are present in the tree, if either one or both of the values are not present
 # it will return None
+# if duplicate nodes are present one in left and another one in right then root node will be returned
 
 def find(root, v):
     """
