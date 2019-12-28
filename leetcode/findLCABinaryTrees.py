@@ -5,8 +5,8 @@ def lowestCommonAncestorRecursive(root, p, q):
      if root.val == p.val or root.val == q.val:
          return root
 
-     left = lowestCommonAncestor(root.left, p, q)
-     right = lowestCommonAncestor(root.right, p, q)
+     left = lowestCommonAncestorRecursive(root.left, p, q)
+     right = lowestCommonAncestorRecursive(root.right, p, q)
 
      if left is None:
          return right
@@ -36,7 +36,7 @@ root.right.left = Node(0)
 root.right.right = Node(8)
 
 
-print(lowestCommonAncestor(root, Node(7), Node(4)).val)
+print(lowestCommonAncestorRecursive(root, Node(7), Node(4)).val)
 
 
 
