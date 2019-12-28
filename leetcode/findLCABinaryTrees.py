@@ -1,3 +1,8 @@
+# this is the simplest implementation which assumes that both the
+# values are present in the tree, if one of the values is not present
+# it will return the node which is present in the tree
+# if both the values are not present then it will return None
+
 def lowestCommonAncestorRecursive(root, p, q):
      if root is None:
          return None
@@ -10,11 +15,10 @@ def lowestCommonAncestorRecursive(root, p, q):
 
      if left is None:
          return right
-
-     if right is None:
+     elif right is None:
          return left
-
-     return root
+     else:
+         return root
 
 
 
@@ -43,7 +47,11 @@ print(lowestCommonAncestorRecursive(root, Node(7), Node(4)).val)
 
 
 
-## another method from geeksforgeeks
+## another method
+
+# this is the advanced implementation which checks if both the
+# values are present in the tree, if either one or both of the values are not present
+# it will return None
 
 def find(root, v):
     """
