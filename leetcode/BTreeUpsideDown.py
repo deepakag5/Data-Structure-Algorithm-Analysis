@@ -1,11 +1,4 @@
-class Node:
-    def __init__(self, key):
-        self.left = None
-        self.right = None
-        self.val = key
-
-
-
+# O(n), O (log n)
 def binarytreeUpsideDownRecursive(root):
     """
     :param root: TreeNode
@@ -26,7 +19,7 @@ def binarytreeUpsideDownRecursive(root):
     return newroot
 
 
-
+# O(n), O (1)
 def binarytreeUpsideIterative(root):
     # to traverse left nodes
     curr = root
