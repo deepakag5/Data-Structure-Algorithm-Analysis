@@ -6,19 +6,21 @@ class Node:
 
 
 
-def binarytreeUpsideDown(root):
+def binarytreeUpsideDownRecursive(root):
+    """
+    :param root: TreeNode
+    :return: TreeNode
+    """
     # base case
     if root is None or root.left is None:
         return root
 
-    newroot = Node(binarytreeUpsideDown(root.left))
+    # assign new root as left most child
+    newroot = binarytreeUpsideDown(root.left)
 
     root.left.left = root.right
-    root.left.right = root.right
+    root.left.right = root
     root.left = None
     root.right = None
 
     return newroot
-
-
-
