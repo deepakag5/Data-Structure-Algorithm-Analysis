@@ -16,7 +16,7 @@ def binarytreeUpsideDownRecursive(root):
         return root
 
     # assign new root as left most child
-    newroot = binarytreeUpsideDown(root.left)
+    newroot = binarytreeUpsideDownRecursive(root.left)
 
     root.left.left = root.right
     root.left.right = root
