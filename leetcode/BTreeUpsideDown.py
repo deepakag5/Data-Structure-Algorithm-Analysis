@@ -28,11 +28,14 @@ def binarytreeUpsideDownRecursive(root):
 
 
 def binarytreeUpsideIterative(root):
+    # to traverse left nodes
     curr = root
-    temp = None
     prev = None
+    # to temporarily store right nodes
+    temp = None
 
     while curr is not None:
+        # to get to next left node from current
         next = curr.left
 
         # swap nodes
