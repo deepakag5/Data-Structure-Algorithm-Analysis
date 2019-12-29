@@ -24,3 +24,23 @@ def binarytreeUpsideDownRecursive(root):
     root.right = None
 
     return newroot
+
+
+
+def binarytreeUpsideIterative(root):
+    curr = root
+    temp = None
+    prev = None
+
+    while curr is not None:
+        next = curr.left
+
+        # swap nodes
+        curr.left = temp
+        temp = curr.right
+        curr.right = prev
+
+        prev = curr
+        curr = next
+
+    return prev
