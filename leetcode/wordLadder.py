@@ -17,6 +17,11 @@ def findwordladder(beginWord, endWord, wordList):
             word = queue.pop(0)
             print(word)
 
+    if word == endWord:
+        return res + 1
+
+    for i in range(len(word)):
+        char = list(word)
 
 
     return 0
