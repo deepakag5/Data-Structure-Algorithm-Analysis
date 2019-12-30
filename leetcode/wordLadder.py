@@ -1,3 +1,6 @@
+import string
+
+
 def findwordladder(beginWord, endWord, wordList):
     wordSet = set(wordList)
 
@@ -22,7 +25,17 @@ def findwordladder(beginWord, endWord, wordList):
 
     for i in range(len(word)):
         char = list(word)
+        charlist = string.ascii_lowercase[:26]
 
+        for ch in charlist:
+            char[i] = ch
+            s = ''.join(char)
+            if s in wordSet and s != word:
+                queue.append(s)
+                wordSet.remove(s)
+
+
+    res += 1
 
     return 0
 
