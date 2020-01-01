@@ -1,4 +1,4 @@
-def permute(nums):
+def permuteIterative(nums):
     """
     :param nums: List
     :return: List[List]
@@ -21,3 +21,18 @@ def permute(nums):
 
     return permutations
 
+
+def permuteRecursive(nums):
+    def rec_permute(nums):
+        if len(nums)<1:
+            return [[]]
+
+        res_permutations = []
+
+        for i in range(len(nums)):
+            for perms in rec_permute(nums[:i]+nums[i+1:]):
+                res_permutations.append([nums[i]]+perms)
+
+        return res_permutations
+
+    return rec_permute(nums)
