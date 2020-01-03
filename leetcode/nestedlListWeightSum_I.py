@@ -19,12 +19,32 @@ def depthSumdfs(self, nestedList):
 
 
 def dfs(self, nestedList, level):
-    sum = 0
+    res = 0
 
     for n in nestedList:
         if n.isInteger():
-            sum += n.getInteger() * level
+            res += n.getInteger() * level
         else:
-            sum += self.dfs(n.getList(), level + 1)
+            res += self.dfs(n.getList(), level + 1)
 
-    return sum
+    return res
+
+
+def depthSumbfs(self, nestedList):
+    stack = []
+    res = 0
+    level = 1
+    stack.append(nestedList)
+
+    while stack:
+        for i in range(len(stack)):
+            num_list = stack.pop()
+
+            for n in num_list:
+                if n.isInteger():
+                    res += n.getInteger() * level
+                else:
+                    stack.append(n.getList())
+        level += 1
+
+    return res
