@@ -12,9 +12,9 @@ def depthSum(nestedList):
     return res
 
 
-# Alternate using bfs
+# Alternate using dfs
 
-def depthSumbfs(self, nestedList):
+def depthSumdfs(self, nestedList):
     self.dfs(nestedList, 1)
 
 
