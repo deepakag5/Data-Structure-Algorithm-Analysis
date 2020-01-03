@@ -10,3 +10,21 @@ def depthSum(nestedList):
         depth += 1
 
     return res
+
+
+# Alternate using bfs
+
+def depthSumbfs(self, nestedList):
+    self.dfs(nestedList, 1)
+
+
+def dfs(self, nestedList, level):
+    sum = 0
+
+    for n in nestedList:
+        if n.isInteger():
+            sum += n.getInteger() * level
+        else:
+            sum += self.dfs(n.getList(), level + 1)
+
+    return sum
