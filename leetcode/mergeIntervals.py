@@ -1,3 +1,7 @@
+# sorting of list and the linear scan
+# O(n log n) + O(n) = O(n log n)
+# space - O (n) for holding the results
+
 def merge(intervals):
     # base case
     if not intervals:
