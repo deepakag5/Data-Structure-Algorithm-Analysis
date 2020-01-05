@@ -45,7 +45,10 @@ def myPowRecursive(x, n):
 
 def myPowIterative(x, n):
     if n == 0:
-        return 1
+        return 1.0
+
+    if n == 1:
+        return float(x)
 
     if n < 0:
         x = 1 / x
