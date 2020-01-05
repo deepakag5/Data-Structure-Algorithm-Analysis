@@ -22,9 +22,9 @@ def myPowBrute(x, n):
 
 def fastPow(x, n):
     if n == 0:
-        return 1
+        return 1.0
 
-    half = fastPow(x, n / 2)
+    half = fastPow(x, n // 2)
 
     if n % 2 == 0:
         return half * half
@@ -37,4 +37,29 @@ def myPowRecursive(x, n):
         x = 1 / x
         n = -n
 
-    fastPow(x, n)
+    return fastPow(x, n)
+
+
+# O(log n), O(1)
+# iterative solution
+
+def myPowIterative(x, n):
+    if n == 0:
+        return 1
+
+    if n < 0:
+        x = 1 / x
+        n = -n
+
+    current_product = x
+    ans = 1
+
+    while n:
+        if n % 2 == 1:
+            ans = ans * current_product
+
+        current_product = current_product * current_product
+
+        n = n // 2
+
+    return ans
