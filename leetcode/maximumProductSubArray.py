@@ -22,3 +22,16 @@ def maxProductSubArray1(nums):
         best = max(maxprod, best)
 
     return best
+
+
+def maxProductSubArray2(nums):
+    rev_num = nums[::-1]
+
+    for i in range(1, len(nums)):
+        nums[i] *= nums[i - 1] or 1
+        rev_num[i] *= rev_num[i - 1] or 1
+
+    return max(nums + rev_num)
+
+
+print(maxProductSubArray2([2, 3, -2, 4]))
