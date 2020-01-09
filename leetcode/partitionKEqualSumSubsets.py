@@ -38,3 +38,40 @@ def canPartition(start, nums, used_nums, k, inProgressSum, targetBucketSum):
     # then given list cannot be divided into K equal sum partitions
     # hence return false
     return False
+
+
+# search by constructing subset sums
+
+def canPartitionKSubsets_1(nums, k):
+    target = sum(nums) / k
+
+    if sum(nums) % k != 0:
+        return False
+
+    def search(groups):
+        if not nums:
+            return True
+        v = nums.pop()
+
+        for i, group in enumerate(groups):
+            if group + v <= target:
+                groups[i] += v
+
+                if search(groups):
+                    return True
+
+                groups[i] -= v
+            if not groups:
+                break
+
+        return False
+
+    nums.sort()
+    if nums[-1] > target:
+        return False
+
+    while nums and nums[-1] == target:
+        nums.pop()
+        k -= 1
+
+    return search([0] * k)
