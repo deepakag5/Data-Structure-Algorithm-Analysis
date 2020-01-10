@@ -10,3 +10,30 @@ def serialize(root):
         return string
 
     return rserialize(root, "")
+
+
+class Node:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+
+
+def deserialize(data):
+    def rdeserialize(l):
+        if l[0] == None:
+            l.pop(0)
+            return None
+
+        root = Node(l[0])
+        l.pop(0)
+
+        root.left = rdeserialize(l)
+        root.right = rdeserialize(l)
+
+        return root
+
+    data_list = data.split(',')
+    root = deserialize(data_list)
+
+    return root
