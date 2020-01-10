@@ -61,7 +61,7 @@ def canPartitionKSubsets(nums, k):
             # if value in the bucket is less than the target then add the last value
             if group + v <= target:
                 groups[i] += v
-                # if we have succesfully filled the buckets
+                # if we have successfully filled the buckets
                 if search(groups):
                     return True
                 groups[i] -= v
