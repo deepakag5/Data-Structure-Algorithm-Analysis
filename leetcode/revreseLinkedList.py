@@ -3,9 +3,11 @@ def reverseLL(head):
     curr = head
 
     while curr is not None:
-        temp = curr.next
+        next_node = curr.next
         curr.next = prev
+        if not next_node:
+            return head
         prev = curr
-        curr = temp
+        curr = next_node
 
     return prev
