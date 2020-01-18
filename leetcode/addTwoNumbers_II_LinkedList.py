@@ -6,36 +6,43 @@ def addTwoNumbersII(l1, l2):
     elif not l2:
         return l1
 
-    num1 = l1.val
-    num2 = l2.val
-    l1 = l1.next
-    l2 = l2.next
+    s1 = 0
+    s2 = 0
 
-    while l1 or l2:
-        if l1:
-            num1 *= 10
-            num1 += l1.val
-            l1 = l1.next
+    while l1:
+        s1 *= 10
+        s1 += l1.val
+        l1 = l1.next
+    while l2:
+        s2 *= 10
+        s2 += l2.val
+        l2 = l2.next
 
-        if l2:
-            num2 *= 10
-            num2 += l2.val
-            l2 = l2.next
+    s3 = s1 + s2
 
-    result = num1 + num2
-    if result == 0:
+    if s3 == 0:
         return ListNode(0)
-    next = None
 
-    while result > 0:
-        digit = result % 10
-        result = result // 10
-        node = ListNode(digit)
-        if not next:
-            next = node
-            node.next = None
-        else:
-            node.next = next
-            next = node
+    tail = None
+    head = None
 
-    return node
+    while s3 > 0:
+        head = ListNode(s3 % 10)
+        head.next = tail
+        tail = head
+        s3 = s3 // 10
+
+    return head if head else ListNode(0)
+
+# while result>0:
+#         node = ListNode(result % 10)
+#         result = result // 10
+#         if not next:
+#             next = node
+#             node.next = None
+#         else:
+#             node.next = next
+#             next = node
+#
+#
+#     return node
