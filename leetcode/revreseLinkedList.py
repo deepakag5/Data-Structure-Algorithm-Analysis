@@ -1,3 +1,6 @@
+# Time: O (n)
+# Space : O(1)
+
 def reverseLL(head):
     prev = None
     curr = head
