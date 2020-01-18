@@ -1,3 +1,6 @@
+# Time: O(max(m,n))
+# Space: O(max(m,n))
+
 def addTwoNumbersII(l1, l2):
     if not l1 and not l2:
         return ListNode(0)
