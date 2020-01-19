@@ -3,7 +3,7 @@
 
 def validateRecursive(root):
     if not root:
-        return None
+        return True
 
     def recurse(node, lower=float('-inf'), upper=float('inf')):
         val = node.val
@@ -25,19 +25,21 @@ def validateRecursive(root):
 
 def validateIterative(root):
     if not root:
-        return False
+        return True
 
     stack = [(root, float('-inf'), float('inf')), ]
 
     while stack:
-        root, lower, upper = stack.pop()
+        node, lower, upper = stack.pop()
 
+        if not node:
+            continue
         val = root.val
 
-        if val <= lower and val >= upper:
+        if val <= lower or val >= upper:
             return False
-        stack.append((root.right, val, upper))
-        stack.append(root.left, lower, val)
+        stack.append((node.right, val, upper))
+        stack.append((node.left, lower, val))
 
     return True
 
