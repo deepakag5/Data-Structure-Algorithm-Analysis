@@ -35,10 +35,6 @@ def validateIterative(root):
         node, lower, upper = stack.pop()
         if not node:
             continue
-        val = node.val
-        print(val)
-        print("lower: " + str(lower))
-        print("upper: " + str(upper))
 
         if val <= lower or val >= upper:
             return False
@@ -72,20 +68,3 @@ def validateInorder(root):
         root = root.right
 
     return True
-
-
-class Node:
-
-    def __init__(self, key):
-        self.val = key
-        self.left = None
-        self.right = None
-
-
-root = Node(2)
-root.left = Node(1)
-root.right = Node(5)
-root.right.left = Node(4)
-root.right.right = Node(6)
-
-print(validateIterative(root))
