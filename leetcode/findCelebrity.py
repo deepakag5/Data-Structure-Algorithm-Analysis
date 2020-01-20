@@ -1,3 +1,6 @@
+# Time: O(3N) ~ O(N)  we have three loops at max they can go till length of N
+# Space: O(1)
+
 def findtheCelebrity(n):
     """
     :param n: List[List]

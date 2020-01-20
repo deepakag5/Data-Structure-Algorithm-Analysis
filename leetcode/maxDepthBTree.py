@@ -1,3 +1,8 @@
+# Time: O(N) since each node is processed exactly once.
+
+# Space: O(N) when tree is completely unbalanced or O(log N) when tree is balanced
+
+
 def maxDepthRecursive(root):
     """
     :param root: TreeNode
