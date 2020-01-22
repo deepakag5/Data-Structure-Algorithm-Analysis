@@ -3,6 +3,8 @@
 # it will return the node which is present in the tree
 # if both the values are not present then it will return None
 
+# O(n), O(n)
+
 def lowestCommonAncestorRecursive(root, p, q):
     """
     :param root: TreeNode
@@ -25,6 +27,9 @@ def lowestCommonAncestorRecursive(root, p, q):
         return left
     else:
         return root
+
+
+# O(n), O(n)
 
 def lowestCommonAncestorIterative(root, p, q):
         """
@@ -105,6 +110,8 @@ print(lowestCommonAncestorIterative(root, n1 , n2).val)
 # values are present in the tree, if either one or both of the values are not present
 # it will return None
 # if duplicate nodes are present one in left and another one in right then root node will be returned
+
+# O(n), O(n)
 
 def find(root, v):
     """
