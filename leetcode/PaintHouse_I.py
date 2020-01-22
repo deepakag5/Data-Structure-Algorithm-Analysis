@@ -23,6 +23,3 @@ def minCost(costs):
         for j in range(len(costs[0])):
             dp[j] = costs[i][j] + min(pre[:j] + pre[j + 1:])
     return min(dp)
-
-
-print(minCost([[17, 2, 17, 20], [16, 16, 5, 12], [14, 3, 9, 5]]))
