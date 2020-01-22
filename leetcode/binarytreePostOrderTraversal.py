@@ -50,4 +50,8 @@ def postOrderTraversalDFS(root):
         if node.right is not None:
             stack.append(node.right)
 
+    # we are adding in order root->right->left in output list
+    # (because right is added after left on stack it will get popped and added to output list)
+    # thus we need to reverse the output list for our postorder traversal (left->right->root)
+
     return output[::-1]
