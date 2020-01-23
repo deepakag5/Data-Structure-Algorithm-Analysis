@@ -1,4 +1,4 @@
-def findLeaves(root):
+def findLeavesRecursive(root):
     """
     :param root: TreeNode
     :return: List[List]
@@ -32,3 +32,36 @@ def findLeaves(root):
 
     #print(res_list)
     return res_list
+
+
+def findLeavesIterative(root):
+    """
+    :param root: TreeNode
+    :return: List[List]
+    """
+    if root is None:
+        return None
+
+    res_list = []
+
+    def find_height(node):
+        stack = [(1, node)]
+
+        depth = 0
+
+        while stack:
+            current_depth, node = stack.pop()
+
+            if node:
+                depth = max(current_depth, depth)
+                stack.append((current_depth + 1, node.right))
+                stack.append((current_depth + 1, node.left))
+
+                if len(res_list) < depth:
+                    res_list.append([])
+
+                res_list[depth - 1].append(node.val)
+
+    find_height(root)
+
+    return res_list[::-1]
