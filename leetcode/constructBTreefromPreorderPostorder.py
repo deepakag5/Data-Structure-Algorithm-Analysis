@@ -10,7 +10,11 @@ def constructTreeRecursive(preorder, postorder):
         return Node(preorder.pop(0))
     else:
         root = Node(preorder.pop(0))
+        # as we have already popped off root in previous step
+        # in first pass below - we are getting left subtree root - preorder[1] from original array
         pos = postorder.index(preorder[0])
+        # In first pass of recursive call root and left, right sub trees will get identified
+        # In successive calls left and right childs will be assigned
         root.left = constructTreeRecursive(preorder, postorder[:pos + 1])
         root.right = constructTreeRecursive(preorder, postorder[pos + 1:-1])
         return root
