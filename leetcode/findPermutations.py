@@ -56,12 +56,10 @@ def permutations_SpaceOptimized(nums):
         for i in range(first, n):
             # place ith integer after current permutation
             nums[first], nums[i] = nums[i], nums[first]
-            print("before: " + str(nums))
             # use next integers to complete the permutation
             backtrack(first + 1)
             # backtrack
             nums[first], nums[i] = nums[i], nums[first]
-            print("after: " + str(nums))
 
     n = len(nums)
     output = []
