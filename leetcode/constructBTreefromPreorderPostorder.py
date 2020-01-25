@@ -39,6 +39,8 @@ def constructTreeRecursiveOptimized(preorder, postorder):
             # find the length of left sub tree
             left_len = postorder_map[left_val] - poststart + 1
             # assign value to left and right sub trees
+            # In first pass of recursive call root and left, right sub trees will get identified
+            # In successive calls left and right childs will be assigned
             root.left = constructTree(prestart + 1, prestart + left_len, poststart, poststart + left_len - 1)
             root.right = constructTree(prestart + left_len + 1, preend, poststart + left_len, postend - 1)
             return root
@@ -57,11 +59,16 @@ def constructTreeIterative(preorder, postorder):
     for pre_val in preorder[1:]:
         node = Node(pre_val)
         while stack[-1].val == postorder[posIndex]:
+            # this loop runs when the last value at stack matches the postorder value at posindex
+            # which means when there is no leaf node anymore so we must pop
             stack.pop()
             posIndex += 1
         if not stack[-1].left:
+            # this loop runs to attach left child
             stack[-1].left = node
         else:
+            # this loop runs to attach right child
             stack[-1].right = node
         stack.append(node)
+        # return root node ref
     return stack[0]
