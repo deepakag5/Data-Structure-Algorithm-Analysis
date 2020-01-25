@@ -30,21 +30,20 @@ def dfs(self, nestedList, level):
     return res
 
 
-def depthSumbfs(self, nestedList):
+def depthSumbfs(nestedList):
     stack = []
     res = 0
     level = 1
     stack.append(nestedList)
 
+    for n in nestedList:
+        stack.append((n, level))
     while stack:
-        for i in range(len(stack)):
-            num_list = stack.pop()
-
-            for n in num_list:
-                if n.isInteger():
-                    res += n.getInteger() * level
-                else:
-                    stack.append(n.getList())
-        level += 1
+        n, level = stack.pop(0)
+        if n.isInteger():
+            res += n.getInteger() * level
+        else:
+            for i in n.getList():
+                stack.append((i, level + 1))
 
     return res
