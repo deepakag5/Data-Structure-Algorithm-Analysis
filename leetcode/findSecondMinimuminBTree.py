@@ -1,7 +1,13 @@
+# Time Complexity: O(N)+O(N) =O(N) , N is the total number of nodes in the given tree.
+# We visit each node exactly once during dfs and then scan through visited
+
+# Space Complexity: O(N)+O(N) = O(N), for info stored on stack and visited
+
 def findSecondMin(root):
     if root is None:
         return None
 
+    # this is an iterative method to perform depth first search O(N)
     stack = [root]
     visited = set()
 
@@ -18,6 +24,7 @@ def findSecondMin(root):
     min_val = root.val
     second_min = float('inf')
 
+    # cheking the visited set -  O(N)
     for val in visited:
         if min_val < val < second_min:
             second_min = val
