@@ -52,7 +52,6 @@ def permutations_SpaceOptimized(nums):
         # if all integers are used up
         if first == n:
             output.append(nums[:])
-            print(output)
         for i in range(first, n):
             # place ith integer after current permutation
             nums[first], nums[i] = nums[i], nums[first]
