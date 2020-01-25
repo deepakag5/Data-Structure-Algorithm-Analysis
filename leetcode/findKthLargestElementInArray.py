@@ -1,3 +1,16 @@
+# Approach  1: this problem can also be done using - sorted(nums)[-k] - O(N log N), O(1)
+# Approach 2: or using extra space heap - heapq.nlargest(k, nums)[-1] - O(N log k), O(N)
+
+
+# Approach 3: using QuickSelect
+# Time : O(N)
+# Space : O(1)
+
+# Similar to quicksort algo wr choose a pivot and place elements to its either side.
+# In quicksort we recursively check for the both parts that would result in O(N logN) time complexity.
+# Here there is no need to deal with both parts since now one knows in which part to search for
+# N - kth smallest element, and that reduces average time complexity to O(N)
+
 import random
 
 
