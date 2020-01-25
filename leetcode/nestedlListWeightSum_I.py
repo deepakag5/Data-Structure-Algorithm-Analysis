@@ -34,7 +34,6 @@ def depthSumbfs(nestedList):
     stack = []
     res = 0
     level = 1
-    stack.append(nestedList)
 
     for n in nestedList:
         stack.append((n, level))
