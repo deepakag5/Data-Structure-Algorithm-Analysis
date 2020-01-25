@@ -3,7 +3,7 @@
 
 
 # Approach 3: using QuickSelect
-# Time : O(N)
+# Time : O(N)    - O(N^2) worst case
 # Space : O(1)
 
 # Similar to quicksort algo wr choose a pivot and place elements to its either side.
