@@ -60,6 +60,6 @@ def findKthLargest(nums, k):
         elif k_smallest < pivot_index_sorted:
             return select(left, pivot_index_sorted - 1, k_smallest)
         else:
-            return select(pivot_index_sorted - 1, right, k_smallest)
+            return select(pivot_index_sorted + 1, right, k_smallest)
 
     return select(0, len(nums) - 1, len(nums) - k)
