@@ -21,7 +21,7 @@ def findSecondMin(root):
         if node.right is not None:
             stack.append(node.right)
 
-    print(visited)
+    # print(visited)
 
     min_val = root.val
     second_min = float('inf')
@@ -34,20 +34,6 @@ def findSecondMin(root):
     return second_min if second_min < float('inf') else -1
 
 
-class Node:
-    def __init__(self, key):
-        self.val = key
-        self.left = None
-        self.right = None
-
-
-root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.left.left = Node(4)
-root.left.right = Node(5)
-
-print(findSecondMin(root))
 
 def findSecondMinOptimumSol(self, root):
     self.second_min = float('inf')
