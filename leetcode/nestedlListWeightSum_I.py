@@ -46,3 +46,26 @@ def depthSumbfs(nestedList):
                 stack.append((i, level + 1))
 
     return res
+
+
+# since stack.pop(0) takes O(n) time to improve
+# we can use queue which has O(1) time to lookup
+from collections import deque
+
+
+def depthSumbfs_queue(nestedList):
+    queue = deque()
+    res = 0
+    level = 1
+
+    for n in nestedList:
+        queue.append((n, level))
+    while queue:
+        n, level = queue.popleft()
+        if n.isInteger():
+            res += n.getInteger() * level
+        else:
+            for i in n.getList():
+                queue.append((i, level + 1))
+
+    return res
