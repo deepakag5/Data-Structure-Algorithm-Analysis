@@ -1,3 +1,6 @@
+# Time O(N^2), as we are iterating over copies of both pre and post sub-arrays
+# Space O(N^2), passing copies of both pre and post sub-arrays
+
 def constructTreeRecursive(inorder, postorder):
     """
     :param inorder: list
@@ -14,6 +17,10 @@ def constructTreeRecursive(inorder, postorder):
 
     return root
 
+
+# Time O(N), here the problem has been divided into two sub problems a=2(to compute left and right subtree)
+# and the size of each sub-problem is half of the initial problem, b=2,  O(N^logb(a)) -- log2(2)=1, O(N)
+# Space O(N), as we are passing only the indexes for both pre and post
 
 def constructTreeRecursiveOptimized(inorder, postorder):
     """
