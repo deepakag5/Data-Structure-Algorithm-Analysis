@@ -9,7 +9,7 @@ def factorCombIterative(num):
 
         while i*i<=n:
             if n%i == 0:
-                combinations.append((comb+[i, n/i]))
+                combinations.append(comb + [i, n / i])
                 stack.append((n/i, i, comb+[i]))
 
             i+=1
@@ -22,7 +22,7 @@ def factorCombRecursive(num):
     def factor_rec(n, i, comb, combinations):
         while i*i<=n:
             if n%i == 0:
-                combinations.append((comb+[i,n/i]))
+                combinations.append(comb + [i, n / i])
                 factor_rec(n/i, i, comb+[i], combinations)
 
             i+=1
