@@ -1,3 +1,6 @@
+# Time: O(log N) -  Binary search
+# Space: O(1)
+
 def searchRotatedArray(nums, target):
     if not nums:
         return -1
