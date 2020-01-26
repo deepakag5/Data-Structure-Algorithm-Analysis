@@ -39,4 +39,8 @@ def searchRangeOptimized(nums, target):
 
     low = search(target)
 
+    # for rightmost index we will search for target+1 as array is sorted
+    # if target+1 is found the rightmost index will be just prior to that
+    # even if we don't find target+1 - low will become equal to high then we return
+    # the index prior to that
     return [low, search(target + 1) - 1] if target in nums[low:low + 1] else [-1, -1]
