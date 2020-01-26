@@ -1,3 +1,49 @@
+# Divide and Conquer Approach
+# Time: O(N log N)
+# Space: O(log N)
+
+def maxSubArraydivide(nums):
+    def maxSubArray_cross_sum(nums, left, right, mid):
+        # base case
+        if left == right:
+            return nums[left]
+
+        left_subsum = float('-inf')
+        curr_sum = 0
+
+        for i in range(mid, left - 1, -1):
+            curr_sum += nums[i]
+            left_subsum = max(left_subsum, curr_sum)
+
+        right_subsum = float('-inf')
+        curr_sum = 0
+
+        for i in range(mid + 1, right + 1):
+            curr_sum += nums[i]
+            right_subsum = max(right_subsum, curr_sum)
+
+        return left_subsum + right_subsum
+
+    def maxSubArray_helper(nums, left, right):
+        # base case
+        if left == right:
+            return nums[left]
+
+        mid = (left + right) // 2
+
+        left_sum = maxSubArray_helper(nums, left, mid)
+        right_sum = maxSubArray_helper(nums, mid + 1, right)
+        cross_sum = maxSubArray_cross_sum(nums, left, right, mid)
+
+        return max(left_sum, right_sum, cross_sum)
+
+    return maxSubArray_helper(nums, 0, len(nums) - 1)
+
+
+# Greedy and DP Approach
+# Time: O(N)
+# Space: O(1)
+
 def maxSubArrayGreedy(nums):
     # base case - 1
     if not nums:
