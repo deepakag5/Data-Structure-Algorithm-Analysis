@@ -48,6 +48,8 @@ def maxSubArraySum_returnArray(nums):
 
         if max_sum < curr_sum:
             max_sum = curr_sum
+            # we maintain the indices whenever we get max sum
+            # start however gets replaced whenever we reset curr sum
             # start = s
             # end = i
 
