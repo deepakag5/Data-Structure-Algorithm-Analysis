@@ -1,7 +1,8 @@
 def maxSubArrayGreedy(nums):
+    # base case - 1
     if not nums:
         return 0
-
+    # base case - 2
     if len(nums) == 1:
         return nums
 
@@ -15,16 +16,17 @@ def maxSubArrayGreedy(nums):
 
 
 def maxSubArrayDP(nums):
+    # base case - 1
     if not nums:
         return 0
 
+    # base case - 2
     if len(nums) == 1:
         return nums
 
     max_sum = nums[0]
 
     for i in range(1, len(nums)):
-        # print(nums[i-1])
         if nums[i - 1] > 0:
             nums[i] += nums[i - 1]
 
