@@ -1,4 +1,8 @@
 def maxProductSubArray(nums):
+    # base case
+    if len(nums) == 0:
+        return []
+
     maxprod, minprod, best = 1, 1, nums[0]
 
     for num in nums:
@@ -14,6 +18,10 @@ def maxProductSubArray(nums):
 
 
 def maxProductSubArray1(nums):
+    # base case
+    if len(nums) == 0:
+        return []
+
     maxprod, minprod, best = 1, 1, nums[0]
 
     for num in nums:
@@ -25,6 +33,10 @@ def maxProductSubArray1(nums):
 
 
 def maxProductSubArray2(nums):
+    # base case
+    if len(nums) == 0:
+        return []
+
     rev_num = nums[::-1]
 
     for i in range(1, len(nums)):
