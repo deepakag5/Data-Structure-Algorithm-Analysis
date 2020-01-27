@@ -1,3 +1,9 @@
+# Time: O(n) in both serialization and deserialization functions, we visit each node exactly once,
+# where N is the number of nodes, i.e. the size of tree.
+
+# Space : O(n) in both serialization and deserialization functions, we keep the entire tree,
+# either at the beginning or at the end,
+
 def serialize(root):
     def rserialize(root, string):
         if root is None:
