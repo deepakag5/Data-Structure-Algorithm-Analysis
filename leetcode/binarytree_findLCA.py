@@ -15,7 +15,7 @@ def lowestCommonAncestorRecursive(root, p, q):
     if root is None:
         return None
 
-    if root.val==p.val or root.val==q.val:
+    if root.val == p.val or root.val == q.val:
         return root
 
     left = lowestCommonAncestorRecursive(root.left, p, q)
@@ -32,47 +32,47 @@ def lowestCommonAncestorRecursive(root, p, q):
 # O(n), O(n)
 
 def lowestCommonAncestorIterative(root, p, q):
-        """
-        :type root: TreeNode
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: TreeNode
-        """
-        # Stack for tree traversal
-        stack = [root]
+    """
+    :type root: TreeNode
+    :type p: TreeNode
+    :type q: TreeNode
+    :rtype: TreeNode
+    """
+    # Stack for tree traversal
+    stack = [root]
 
-        # Dictionary for parent pointers (child is key and parent is value)
-        parent = {root: None}
+    # Dictionary for parent pointers (child is key and parent is value)
+    parent = {root: None}
 
-        # Iterate until we find both the nodes p and q
-        while p not in parent or q not in parent:
+    # Iterate until we find both the nodes p and q
+    while p not in parent or q not in parent:
 
-            node = stack.pop()
+        node = stack.pop()
 
-            # While traversing the tree, keep saving the parent pointers.
-            if node.left:
-                parent[node.left] = node
-                stack.append(node.left)
-            if node.right:
-                parent[node.right] = node
-                stack.append(node.right)
+        # While traversing the tree, keep saving the parent pointers.
+        if node.left:
+            parent[node.left] = node
+            stack.append(node.left)
+        if node.right:
+            parent[node.right] = node
+            stack.append(node.right)
 
-        # Ancestors set() for node p.
-        ancestors = set()
+    # Ancestors set() for node p.
+    ancestors = set()
 
-        # Process all ancestors for node p using parent pointers.
-        while p:
-            # add current node/ ancestor of p
-            ancestors.add(p)
-            # get the ancestor of current child p (remember child is key and parent is value in parent dictionary)
-            p = parent[p]
+    # Process all ancestors for node p using parent pointers.
+    while p:
+        # add current node/ ancestor of p
+        ancestors.add(p)
+        # get the ancestor of current child p (remember child is key and parent is value in parent dictionary)
+        p = parent[p]
 
-        # keep getting the ancestor of q
-        # The first ancestor of q which appears in
-        # p's ancestor set() is their lowest common ancestor.
-        while q not in ancestors:
-            q = parent[q]
-        return q
+    # keep getting the ancestor of q
+    # The first ancestor of q which appears in
+    # p's ancestor set() is their lowest common ancestor.
+    while q not in ancestors:
+        q = parent[q]
+    return q
 
 
 # definition of binary tree
@@ -81,6 +81,7 @@ class Node:
         self.val = key
         self.left = None
         self.right = None
+
 
 root = Node(3)
 root.left = Node(5)
@@ -92,16 +93,12 @@ root.left.right.right = Node(4)
 root.right.left = Node(0)
 root.right.right = Node(8)
 
-#print(lowestCommonAncestorRecursive(root, Node(7), Node(4)).val)
+# print(lowestCommonAncestorRecursive(root, Node(7), Node(4)).val)
 
 n1 = root.left.right.left
 n2 = root.left.right.right
 
-print(lowestCommonAncestorIterative(root, n1 , n2).val)
-
-
-
-
+print(lowestCommonAncestorIterative(root, n1, n2).val)
 
 
 ## another method
@@ -178,7 +175,7 @@ def findLCAinBTree(root, n1, n2):
 
     lca = findLCA(root, n1, n2, v)
 
-    print("LCA: "+str(lca.val))
+    print("LCA: " + str(lca.val))
 
     # returns lca if both n1 and n2 are present in the tree
     if (v[0] and v[1]) or (v[0] and find(lca, n2)) or (v[1] and find(lca, n1)):

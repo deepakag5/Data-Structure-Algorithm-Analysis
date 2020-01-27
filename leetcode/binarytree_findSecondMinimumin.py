@@ -34,7 +34,6 @@ def findSecondMin(root):
     return second_min if second_min < float('inf') else -1
 
 
-
 def findSecondMinOptimumSol(self, root):
     self.second_min = float('inf')
     min_val = root.val

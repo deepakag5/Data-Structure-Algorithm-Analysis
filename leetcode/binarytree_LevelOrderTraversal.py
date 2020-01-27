@@ -14,21 +14,20 @@ def levelOrderRecursive(root):
 
     def getlevelorder(node, level):
         # starting the current level
-        if len(levels)==level:
+        if len(levels) == level:
             levels.append([])
 
         levels[level].append(node.val)
 
         if node.left is not None:
-            getlevelorder(node.left, level+1)
+            getlevelorder(node.left, level + 1)
 
         if node.right is not None:
-            getlevelorder(node.right, level+1)
+            getlevelorder(node.right, level + 1)
 
     getlevelorder(root, 0)
 
     return levels
-
 
 
 def levelorderIterative(root):
@@ -59,6 +58,6 @@ def levelorderIterative(root):
             if node.right:
                 queue.append(node.right)
 
-        level+=1
+        level += 1
 
     return levels

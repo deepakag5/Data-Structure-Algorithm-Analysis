@@ -5,7 +5,6 @@ def countPairs(root, given_sum):
     :return: int
     """
 
-
     # two stacks to store nodes for forward and backward iterator
     stack1 = []
     stack2 = []
