@@ -1,3 +1,10 @@
+# Time Complexity: O(|S| + |T|) where |S| and |T| represent the lengths of strings S and T.
+# In the worst case we might end up visiting every element of string SS twice,
+# once by left pointer and once by right pointer. |T| represents the length of string T
+#
+# Space Complexity: O(|S| + |T|). |S| when the window size is equal to the entire string S.
+# ∣T∣ when T has all unique characters.
+
 def minWindow(s,t):
     """
     :param s: str
