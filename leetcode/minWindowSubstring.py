@@ -74,6 +74,12 @@ def minWindow(s,t):
     return "" if ans[0] == float('inf') else s[ans[1]:ans[2]+1]
 
 
+# Time Complexity : O(|S| + |T|)  where |S| and |T| represent the lengths of strings SS and TT.
+# The complexity is same as the previous approach. But in certain cases where filtered_S∣ <<< |S|,
+# the complexity would reduce because the number of iterations would be 2*|filtered S| + |S| + |T|
+
+# Space Complexity : O(|S| + |T|)
+
 
 def minWindowOptimized(s, t):
     """
