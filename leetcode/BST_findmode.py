@@ -1,3 +1,5 @@
+# Time Complexity : O(n)
+
 def countModeBSTree(root):
     """
 
