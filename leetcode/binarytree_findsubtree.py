@@ -20,9 +20,9 @@ def isSubtree(s, t):
             else:
                 return False
 
-        if areIdentical(s, t):
-            return True
-        if s is None:
-            return False
+    if areIdentical(s, t):
+        return True
+    if s is None:
+        return False
 
-        return isSubtree(s.left, t) or isSubtree(s.right, t)
+    return isSubtree(s.left, t) or isSubtree(s.right, t)
