@@ -35,8 +35,24 @@ def productExceptSelf(nums):
 
     for i in range(length):
         result[i] = L[i] * R[i]
-
     return result
 
+\
 
-print(productExceptSelf_Division([1, 2, 3, 4]))
+def productExceptSelf_NoExtraSpace(nums):
+    length = len(nums)
+
+    result = [0] * length
+
+    result[0] = 1
+
+    for i in range(1, length):
+        result[i] = result[i - 1] * nums[i - 1]
+
+    R = 1
+
+    for i in range(length):
+        result[i] = result[i] * R
+        R *= nums[i]
+
+    return result
