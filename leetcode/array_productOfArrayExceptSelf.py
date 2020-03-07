@@ -1,4 +1,4 @@
-# O(n), O(n) -- Using Division
+# O(n), O(1) -- Using Division
 
 def productExceptSelf_Division(nums):
     length = len(nums)
@@ -37,7 +37,8 @@ def productExceptSelf(nums):
         result[i] = L[i] * R[i]
     return result
 
-\
+
+# O(n), O(1) -- Without using division and no extra space (return array is not considered as space)
 
 def productExceptSelf_NoExtraSpace(nums):
     length = len(nums)
