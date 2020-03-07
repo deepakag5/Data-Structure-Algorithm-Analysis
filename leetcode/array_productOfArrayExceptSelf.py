@@ -1,0 +1,42 @@
+# O(n), O(n) -- Using Division
+
+def productExceptSelf_Division(nums):
+    length = len(nums)
+
+    product = 1
+
+    for i in range(length):
+        product *= nums[i]
+
+    result = [0] * length
+
+    for i in range(length):
+        result[i] = int(product / nums[i])
+
+    return result
+
+
+# O(n), O(n) -- Without using division
+
+def productExceptSelf(nums):
+    length = len(nums)
+
+    L, R, result = [0] * length, [0] * length, [0] * length
+
+    L[0] = 1
+
+    for i in range(1, length):
+        L[i] = L[i - 1] * nums[i - 1]
+
+    R[length - 1] = 1
+
+    for i in reversed(range(length - 1)):
+        R[i] = R[i + 1] * nums[i + 1]
+
+    for i in range(length):
+        result[i] = L[i] * R[i]
+
+    return result
+
+
+print(productExceptSelf_Division([1, 2, 3, 4]))
