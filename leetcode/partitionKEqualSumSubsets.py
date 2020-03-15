@@ -40,7 +40,15 @@ def canPartition(start, nums, used_nums, k, inProgressSum, targetBucketSum):
     return False
 
 
-# search by constructing subset sums
+# solution - search by constructing subset sums
+
+# Time Complexity: O(k^{N-k} k!)
+# where N is the length of nums, and k is as given.
+# As we skip additional zeroes in groups, naively we will make
+# O(k!) calls to search, then an additional O(k^{N-k}) calls after every element of groups is nonzero.
+
+# Space Complexity: O(N), the space used by recursive calls to search in our call stack.
+
 
 def canPartitionKSubsets(nums, k):
     target = int(sum(nums) / k)
@@ -67,7 +75,7 @@ def canPartitionKSubsets(nums, k):
                 groups[i] -= v
             if not group:
                 break
-
+        nums.append(v)
         return False
 
     # sort the list
