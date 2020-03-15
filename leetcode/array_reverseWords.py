@@ -1,3 +1,6 @@
+# Time: O(N)
+# Space: O(1)
+
 def reverseWords(s):
     def reverseString(string):
         left, right = 0, len(string) - 1
