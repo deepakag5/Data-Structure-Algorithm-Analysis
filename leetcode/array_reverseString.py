@@ -7,3 +7,8 @@ def reverseString(s):
         s[left], s[right] = s[right], s[left]
         # increment pointers
         left, right = left + 1, right - 1
+
+    return s
+
+
+print(reverseString(list("hello")))
