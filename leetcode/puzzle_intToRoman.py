@@ -6,7 +6,7 @@ def intToRoman(num):
 
     for i, v in enumerate(values):
         # get the roman numeral for quotient
-        result += (num // / v) * roman_numerals[i]
+        result += (num // v) * roman_numerals[i]
         # get the remainder
         num %= v
 
