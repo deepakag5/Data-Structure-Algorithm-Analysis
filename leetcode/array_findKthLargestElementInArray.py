@@ -20,6 +20,7 @@ def findKthLargest(nums, k):
     :param k: int
     :return: int
     """
+
     def partition(left, right, pivot_index):
         # get the pivot element
         pivot = nums[pivot_index]
