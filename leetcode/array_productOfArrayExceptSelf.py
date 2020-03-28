@@ -52,7 +52,7 @@ def productExceptSelf_NoExtraSpace(nums):
 
     R = 1
 
-    for i in range(length):
+    for i in reversed(range(length)):
         result[i] = result[i] * R
         R *= nums[i]
 
