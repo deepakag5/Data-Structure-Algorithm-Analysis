@@ -27,8 +27,8 @@ def mergeIterative(self, l1, l2):
         return None
     elif not l1:
         return l2
-    elif not l1:
-        return l2
+    elif not l2:
+        return l1
 
     # create pointers to hold the final merged list
     dummy = curr = ListNode(0)
