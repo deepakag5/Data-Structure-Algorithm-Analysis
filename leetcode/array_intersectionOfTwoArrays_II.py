@@ -36,7 +36,7 @@ def intersection_use_sort(nums1, nums2):
 
     nums1 = sorted(nums1)
     nums2 = sorted(nums2)
-    result = []
+    # result = []
 
     i, j, k = 0, 0, 0
 
@@ -46,12 +46,13 @@ def intersection_use_sort(nums1, nums2):
         elif nums1[i] > nums2[j]:
             j += 1
         else:
-            result.append(nums1[i])
+            nums1[k] = nums1[i]
+            #result.append(nums1[i])
             i += 1
             j += 1
             k += 1
 
-    return result
+    return nums1[:k]
 
 # Follow-up Questions
 
