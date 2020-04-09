@@ -6,6 +6,9 @@
 # Time : O(N)    - O(N^2) worst case
 # Space : O(1)
 
+# O(1) space due to tail recursion. Tail recursion means the last thing this function is going to do is to return itself.
+# System will pop up the current function from stack and put a new one into stack.
+
 # Similar to quicksort algo wr choose a pivot and place elements to its either side.
 # In quicksort we recursively check for the both parts that would result in O(N logN) time complexity.
 # Here there is no need to deal with both parts since now one knows in which part to search for
@@ -50,7 +53,7 @@ def findKthLargest(nums, k):
         # get a random index for pivot
         pivot_index = random.randint(left, right)
 
-        # get pivot index as it would be in a sorted array by using parition
+        # get pivot index as it would be in a sorted array by using partition
         pivot_index_sorted = partition(left, right, pivot_index)
 
         # if index we are looking for (k_smallest) matches pivot index matches return it
