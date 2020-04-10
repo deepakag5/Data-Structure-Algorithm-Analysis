@@ -1,9 +1,30 @@
+# Brute Force - O(n^3)
+# Check all the substring one by one to see if it has no duplicate character.
+
+
+def lengthOflongest_substr_brute(s):
+    for i in range(len(s)):  # O(n)
+        for j in range(i + 1, len(s)):  # O(n^2)
+            if allUnique(s, i, j):  # O(n^3)
+                ans = max(ans, j - i)
+    return ans
+
+
+def allUnique(s, start, end):
+    hash_set = set()
+    for i in range(start, end):
+        if s[i] in hash_set:
+            return False
+            hash_set.add(s[i])
+    return true
+
+
 # Time: O(2N)  we are traversing the list with two i,j
 # Space: O(min(m,n))  size of unique chars in set
 
 
 # We use HashSet to store the characters in current window [i, j)[i,j) (j = ij=i initially).
-# Then we slide the index jj to the right. If it is not in the HashSet, we slide j further.
+# Then we slide the index j to the right. If it is not in the HashSet, we slide j further.
 # Doing so until s[j] is already in the HashSet. At this point
 # we found the maximum size of substrings without duplicate characters start with index i.
 # If we do this for all i, we get our answer.
