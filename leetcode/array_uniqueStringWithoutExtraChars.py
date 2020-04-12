@@ -6,8 +6,6 @@ def stringUnique_NoExtraSpace(s):
     for i in range(len(s)):
         value = ord(s[i]) - ord('a')  # ord('a')=97, ord('b')=98 and so on..  ord provides unicode
 
-        print(checker)
-        print(1 << value)
 
         # If bit corresponding to current character is already set
         # x & y Does a "bitwise and".
