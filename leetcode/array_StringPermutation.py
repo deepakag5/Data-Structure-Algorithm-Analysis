@@ -56,8 +56,8 @@ def checkPermutation_hashmap(s1, s2):
     for char in s2:  # O(N)
         if char in hashmap:  # O(1)
             hashmap[char] -= 1
-            if hashmap[char] < 0:  # O(1)
-                print(hashmap)
-                return False
+        if hashmap[char] < 0:  # O(1)
+            print(hashmap)
+            return False
 
     return True
