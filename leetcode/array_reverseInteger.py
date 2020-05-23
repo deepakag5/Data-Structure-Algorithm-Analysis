@@ -2,7 +2,7 @@
 # Space: O(1)
 
 def reverseInt(x):
-    if str(x).strip() == ''
+    if str(x).strip() == '':
         return ''
 
     if x == 0:
