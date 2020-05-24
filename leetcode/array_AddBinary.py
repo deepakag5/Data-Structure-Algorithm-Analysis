@@ -8,6 +8,13 @@ def addBinary(a, b):
 # Space: O(max(N,M))
 
 def addBinary_bitbybit(a, b):
+    # edge cases (we can also check for characters other than numeric like -
+    # whitespaces, alphabets, special chars etc)
+    if len(a) == 0:
+        return b
+    if len(b) == 0:
+        return a
+
     # find the max len between a and b
     n = max(len(a), len(b))
     # make lengths similar by filling leading zeros
