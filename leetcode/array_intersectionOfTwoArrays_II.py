@@ -1,5 +1,7 @@
 # Time O(N+M)
 # Space: O(min(N+M))  to store the result
+
+
 def intersection_use_hm(nums1, nums2):
     # base case
     if len(nums1) == 0 or len(nums2) == 0:
@@ -27,7 +29,7 @@ def intersection_use_hm(nums1, nums2):
     return result
 
 
-# Time O(N log N+M log M)
+# Time O((N log N)+(M log M))
 # Space: O(1)  (we can store the result in one of the arrays as well and return till k)
 
 def intersection_use_sort(nums1, nums2):
