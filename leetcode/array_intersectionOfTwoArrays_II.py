@@ -1,7 +1,6 @@
 # Time O(N+M)
 # Space: O(min(N+M))  to store the result
 
-
 def intersection_use_hm(nums1, nums2):
     # base case
     if len(nums1) == 0 or len(nums2) == 0:
@@ -29,6 +28,36 @@ def intersection_use_hm(nums1, nums2):
     return result
 
 
+# Time O(N+M)
+# Space: O(min(N+M))  to store the values in hash map
+
+def intersection_use_hm_1(nums1, nums2):
+    # base case
+    if len(nums1) == 0 or len(nums2) == 0:
+        return []
+
+    # make sure that nums1 length is smaller than nums2
+    if len(nums1) > len(nums2):
+        return intersection_use_hm_1(nums2, nums1)
+
+    hash_map = {}
+
+    for num in nums1:
+        hash_map[num] = hash_map.get(num, 0) + 1
+
+    k = 0
+
+    for num in nums2:
+        cnt = hash_map.get(num, 0)
+
+        if cnt > 0:
+            nums1[k] = num
+            hash_map[num] -= 1
+            k += 1
+
+    return nums1[:k]
+
+
 # Time O((N log N)+(M log M))
 # Space: O(1)  (we can store the result in one of the arrays as well and return till k)
 
@@ -38,7 +67,6 @@ def intersection_use_sort(nums1, nums2):
 
     nums1 = sorted(nums1)
     nums2 = sorted(nums2)
-    # result = []
 
     i, j, k = 0, 0, 0
 
@@ -49,7 +77,6 @@ def intersection_use_sort(nums1, nums2):
             j += 1
         else:
             nums1[k] = nums1[i]
-            #result.append(nums1[i])
             i += 1
             j += 1
             k += 1
