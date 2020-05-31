@@ -25,7 +25,10 @@ def mergerKSortedLists(lists):
     while num_lists > interval:
         for i in range(0, num_lists - interval, interval * 2):
             lists[i] = merge2SortedLists(lists[i], lists[i + interval])
-            interval *= 2
+        # need to jump by a factor of two after every step as
+        # first pass merged -  0-1, 2-3, 4-5....., then merge 0-2, 4-6.....,
+        # then merge 0-4 and so on until all the merged lists are in lists[0]
+        interval *= 2
     return lists[0] if num_lists > 0 else lists
 
 
