@@ -7,7 +7,7 @@
 from collections import deque
 
 
-def rightSideView(root):
+def leftSideView(root):
     if not root:
         return []
 
