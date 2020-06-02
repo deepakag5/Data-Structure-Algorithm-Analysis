@@ -30,3 +30,19 @@ def removeMinToMakeAanagram(s, t):
         result += abs(count1[i] - count2[i])
 
     return result
+
+
+# Time: O(N)
+# Space: O(k)
+
+
+def removeMinToMakeAanagramOpt(s, t):
+    count1 = [0] * 26
+
+    for char in s:
+        count1[ord(char) - ord('a')] += 1
+
+    for char in t:
+        count1[ord(char) - ord('a')] -= 1
+
+    return sum(map(abs, count1))
