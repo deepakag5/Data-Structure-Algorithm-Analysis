@@ -1,5 +1,5 @@
 # Time: O(N)
-# Space: O(2N) - used two hashmaps to store the chars
+# Space: O(2K) - used two hashmaps to store the chars
 
 def isAnagram(s, t):
     if len(s) != len(t):
@@ -16,7 +16,7 @@ def isAnagram(s, t):
 
 
 # Time: O(N)
-# Space: O(N) - only one hashmap to store the chars
+# Space: O(K) - only one hashmap to store the chars
 
 def isAnagramOpt(s, t):
     if len(s) != len(t):
