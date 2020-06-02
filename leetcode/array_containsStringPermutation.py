@@ -1,3 +1,6 @@
+# Time : O(l1+(l2-l1))
+# Space : O(1)
+
 def containsStrPerm(s1, s2):
     l1 = [0] * 26
     l2 = [0] * 26
@@ -11,8 +14,11 @@ def containsStrPerm(s1, s2):
     for i in range(len(s2)):
         l2[ord(s2[i]) - ord('a')] += 1
         # for characters at length greater than string 1 decrease the count
+        # the idea is whichever the characters encountered before we find
+        # a continuous string permutation we need to decrease their count
         if i >= len(s1):
             l2[ord(s2[i - len(s1)]) - ord('a')] -= 1
+
         if l1 == l2:
             return True
 
