@@ -5,6 +5,7 @@
 # Time: O(log N) -  Binary search
 # Space: O(1)
 
+
 def findRotatedSorted(nums, target):
     if len(nums) == 0:
         return False
@@ -17,6 +18,9 @@ def findRotatedSorted(nums, target):
         if target == nums[mid]:
             return True
 
+        # this is the additional condition which keeps on incrementing the
+        # low pointer when nums[low] value is equal to nums[mid] so
+        # that the algo does not get stuck among those duplicates
         while low < mid and nums[low] == nums[mid]:
             low += 1
 

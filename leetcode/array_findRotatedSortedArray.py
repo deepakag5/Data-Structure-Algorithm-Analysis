@@ -1,6 +1,7 @@
 # Time: O(log N) -  Binary search
 # Space: O(1)
 
+
 def searchRotatedArray(nums, target):
     if not nums:
         return -1
@@ -13,12 +14,12 @@ def searchRotatedArray(nums, target):
         if target == nums[mid]:
             return mid
         elif nums[low] <= nums[mid]:
-            if nums[low] <= target <= nums[mid]:
+            if nums[low] <= target < nums[mid]:
                 high = mid - 1
             else:
                 low = mid + 1
         else:
-            if nums[mid] <= target <= nums[high]:
+            if nums[mid] < target <= nums[high]:
                 low = mid + 1
             else:
                 high = mid - 1
