@@ -1,5 +1,5 @@
 # Time: O(N) - we visit each node exactly once
-# Space: O(N) worst case - O(log N) when tree i completely balanced
+# Space: O(N) worst case - O(log N) when tree is completely balanced
 
 
 def findPathSumExistsRecursive(root, target_sum):
@@ -25,7 +25,7 @@ def findPathSumExistsRecursive(root, target_sum):
 
 
 # Time: O(N) - we visit each node exactly once
-# Space: O(N) worst case - O(log N) when tree i completely balanced
+# Space: O(N) worst case - O(log N) when tree is completely balanced
 
 def findPathSumExistsRecursive_1(root, target_sum):
     """
