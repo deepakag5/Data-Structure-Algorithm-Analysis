@@ -5,9 +5,9 @@ def binaryTreeToStringRecursive(root):
     char_str = str(root.val)
 
     if root.left is not None and root.right is not None:
-        char_str += '(' + binaryTreeToString(root.left) + ')'
+        char_str += '(' + binaryTreeToStringRecursive(root.left) + ')'
 
     if root.right is not None:
-        char_str += '(' + binaryTreeToString(root.right) + ')'
+        char_str += '(' + binaryTreeToStringRecursive(root.right) + ')'
 
     return char_str
