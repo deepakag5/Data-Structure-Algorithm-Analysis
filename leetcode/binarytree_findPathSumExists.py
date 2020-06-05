@@ -1,11 +1,12 @@
 # Time: O(N) - we visit each node exactly once
 # Space: O(N) worst case - O(log N) when tree i completely balanced
 
+
 def findPathSumExistsRecursive(root, target_sum):
     """
 
     :param root: TreeNode
-    :param sum: path sum value [int]
+    :param target_sum: path sum value [int]
     :return: boolean
 
     """
@@ -30,7 +31,7 @@ def findPathSumExistsRecursive_1(root, target_sum):
     """
 
     :param root: TreeNode
-    :param sum: path sum value [int]
+    :param target_sum: path sum value [int]
     :return: boolean
 
     """
@@ -54,14 +55,14 @@ def findPathSumExistsRecursive_1(root, target_sum):
 
 
 # Time: O(N) - we visit each node exactly once
-# Space: O(N) worst case - O(log N) when tree i completely balanced
+# Space: O(N) worst case - O(log N) when tree is completely balanced
 
 def findPathSumExistsIterative(root, target_sum):
     """
 
     :rtype: object
     :param root: TreeNode
-    :param sum: path sum value [int]
+    :param target_sum: path sum value [int]
     :return: boolean
 
     """
@@ -71,11 +72,11 @@ def findPathSumExistsIterative(root, target_sum):
 
     stack = [(root, target_sum - root.val), ]
 
-    # when we reach a leaf node check whether the remaining target_sum
-    # has become zero which means we have find our desired path
     while stack:
         node, curr_sum = stack.pop()
 
+        # when we reach a leaf node check whether the remaining target_sum
+        # has become zero which means we have find our desired path
         if node.left is None and node.right is None and curr_sum == 0:
             return True
 
