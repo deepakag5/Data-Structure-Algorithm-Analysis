@@ -1,4 +1,32 @@
-def findPathSumExistsRecursive(root, sum):
+# Time: O(N) - we visit each node exactly once
+# Space: O(N) worst case - O(log N) when tree i completely balanced
+
+def findPathSumExistsRecursive(root, target_sum):
+    """
+
+    :param root: TreeNode
+    :param sum: path sum value [int]
+    :return: boolean
+
+    """
+    if not root:
+        return None
+
+    target_sum -= root.val
+
+    # when we reach a leaf node check whether the remaining target_sum
+    # has become zero which means we have find our desired path
+    if root.left is None and root.right is None:
+        return target_sum == 0
+
+    return findPathSumExistsIterative(root.left, target_sum) \
+           or findPathSumExistsIterative(root.right, target_sum)
+
+
+# Time: O(N) - we visit each node exactly once
+# Space: O(N) worst case - O(log N) when tree i completely balanced
+
+def findPathSumExistsRecursive_1(root, target_sum):
     """
 
     :param root: TreeNode
@@ -13,19 +41,25 @@ def findPathSumExistsRecursive(root, sum):
             if root.left is None and root.right is None:
                 if root.val == target:
                     exist.append(True)
-            if root.left is not None:
-                findPathSum(root.left, target - root.val, exist)
+
             if root.right is not None:
                 findPathSum(root.right, target - root.val, exist)
 
-    findPathSum(root, sum, exist)
+            if root.left is not None:
+                findPathSum(root.left, target - root.val, exist)
+
+    findPathSum(root, target_sum, exist)
 
     return any(exist)
 
 
-def findPathExistsIterative(root, sum):
+# Time: O(N) - we visit each node exactly once
+# Space: O(N) worst case - O(log N) when tree i completely balanced
+
+def findPathSumExistsIterative(root, target_sum):
     """
 
+    :rtype: object
     :param root: TreeNode
     :param sum: path sum value [int]
     :return: boolean
@@ -35,17 +69,18 @@ def findPathExistsIterative(root, sum):
     if root is None:
         return False
 
-    stack = [(root, root.val)]
+    stack = [(root, target_sum - root.val)]
 
     while stack:
-        node, val = stack.pop()
+        node, curr_sum = stack.pop()
 
-        if node.left is None and node.right is None:
-            if val == sum:
-                return True
-        if node.right is not None:
-            stack.append((node.right, val + node.right.val))
-        if node.left is not None:
-            stack.append((node.left, val + node.left.val))
+        if node.left is None and node.right is None and curr_sum == 0:
+            return True
+
+        if node.right:
+            stack.append((node.right, curr_sum - node.right.val))
+
+        if node.left:
+            stack.append((node.left, curr_sum - node.left.val))
 
     return False
