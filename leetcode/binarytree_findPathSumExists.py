@@ -69,8 +69,10 @@ def findPathSumExistsIterative(root, target_sum):
     if root is None:
         return False
 
-    stack = [(root, target_sum - root.val)]
+    stack = [(root, target_sum - root.val), ]
 
+    # when we reach a leaf node check whether the remaining target_sum
+    # has become zero which means we have find our desired path
     while stack:
         node, curr_sum = stack.pop()
 
