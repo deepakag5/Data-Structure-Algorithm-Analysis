@@ -28,7 +28,6 @@ def validPalin(s):
             # if it's expected then remove lower
             if s[i].lower() != s[j].lower():
                 return False
-                break
             i += 1
             j -= 1
         # if char at i is not alpha move on
