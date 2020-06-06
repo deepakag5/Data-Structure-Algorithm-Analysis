@@ -97,8 +97,8 @@ def verify_alien_dict_no_change_in_word(words, order):
             elif not word2[j].isalpha():
                 j += 1
         # if all the characters are in order but word1 still have some characters left which are alpha
-        # (remember we don't care if the word2 still has more characters because all the characters
-        # have been visited for word2 in previous step and word1 still has some chars)
+        # (remember we don't care if the word2 still has more characters because all the alphas
+        # have been visited for word2 in previous step and word1 still has some alphabets left)
         else:
             if i < len(word1) and len(re.findall('[a-zA-Z]', word1[i:])) > 0:
                 return False
