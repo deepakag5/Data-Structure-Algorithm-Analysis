@@ -94,7 +94,7 @@ def verify_alien_dict_no_change_in_word(words, order):
             elif not word1[i].isalpha():
                 i += 1
             # if char in word2 is not alpha skip and move forward only for word2
-            elif not word2.isalpha():
+            elif not word2[j].isalpha():
                 j += 1
         # if all the characters are in order but word1 still have some characters left which are alpha
         # (remember we don't care if the word2 still has more characters because all the characters
