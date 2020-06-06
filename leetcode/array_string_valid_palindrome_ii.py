@@ -1,6 +1,9 @@
 # Time: O(N)
 # Space: O(N)
 
+# here the difference from valid palindrome is that we can remove one char and check if it's
+# palindrome or not
+
 def validPalin(s):
     # edge case
     # because if it's empty string or one char it'll be a palindrome
