@@ -5,12 +5,12 @@
 def verifyAlienDict(words, order):
     # base case
     if len(words) <= 1:
-        return words
+        return True
 
     hash_map = {}
     # we can also use enumerate here -- hash_map = {char:i for i, char in enumerate(order)}
 
-    for i in range(order):
+    for i in range(len(order)):
         hash_map[order[i]] = i
 
     # using the transitive property a<=b and b<=c then a<=c
