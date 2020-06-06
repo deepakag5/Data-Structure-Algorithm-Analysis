@@ -105,8 +105,8 @@ def verify_alien_dict_no_change_in_word(words, order):
 
     return True
 
-# print(verify_alien_dict_no_change_in_word(words = ["app   ","app $"], order = "hlabcdefgijkmnopqrstuvwxyz"))
+# print(verify_alien_dict_no_change_in_word(words = ["App   ","app $"], order = "hlabcdefgijkmnopqrstuvwxyz"))
 # gives result as 'True' as expected
 
-# print(verify_alien_dict_no_change_in_word(words = ["apple","app $l  %$$%^^"], order = "hlabcdefgijkmnopqrstuvwxyz"))
+# print(verify_alien_dict_no_change_in_word(words = ["Apple","app $l  %$$%^^"], order = "hlabcdefgijkmnopqrstuvwxyz"))
 # gives result as 'False' as expected
