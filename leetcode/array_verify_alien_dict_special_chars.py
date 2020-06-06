@@ -75,6 +75,10 @@ def verify_alien_dict_no_change_in_word(words, order):
         word1 = words[k]
         word2 = words[k + 1]
 
+        # we need to convert to lower to match chars with dictionary !
+        word1 = word1.lower()
+        word2 = word2.lower()
+
         i, j = 0, 0
 
         while i < len(word1) and j < len(word2):
