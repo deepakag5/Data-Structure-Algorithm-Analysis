@@ -41,15 +41,29 @@ def productExceptSelf(nums):
 # O(n), O(1) -- Without using division and no extra space (return array is not considered as space)
 
 def productExceptSelf_NoExtraSpace(nums):
+    # edge case - if array is empty or array has only one value which is 1
+    if len(nums) == 0 or (len(nums) == 1 and nums[0] == 1):
+        return 0
+
+    # array has only one value except 1 then product of array except self will be 1
+    # (we are assuming there can't be zeroes in input)
+    if len(nums) == 1:
+        return 1
+
     length = len(nums)
 
     result = [0] * length
 
+    # we initialize result[0] as 1 as
+    # this is for result of number at first place multiplied by previous num (which is none)
     result[0] = 1
 
+    # get product of all the numbers to the left of each number
     for i in range(1, length):
         result[i] = result[i - 1] * nums[i - 1]
 
+    # get product of all the numbers to the right of each number
+    # naturally the rightmost number has none so initializing R as 1
     R = 1
 
     for i in reversed(range(length)):
