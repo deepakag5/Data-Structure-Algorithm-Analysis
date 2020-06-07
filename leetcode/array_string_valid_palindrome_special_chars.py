@@ -23,6 +23,8 @@ def validPalin(s):
 
     while i < j:
         # compare the chars only if they both are alphabets
+        # (remember we are treating digits as special chars and not using them for comparison
+        # if we wish to consider digits as part of comparison then use isalnum() instead)
         if s[i].isalpha() and s[j].isalpha():
             # we are converting to lower as case sensitivity is not expected
             # if it's expected then remove lower
