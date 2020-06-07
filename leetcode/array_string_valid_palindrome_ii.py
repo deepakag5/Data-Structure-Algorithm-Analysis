@@ -15,7 +15,12 @@ def validPalin(s):
 
     while left < right:
         if s[left] != s[right]:
+            # when there is a mismatch take one string with all the chars except the right char [left:right]
+            # and another string with all chars except left char (left+1)
             left_str, right_str = s[left:right], s[left + 1:right + 1]
+            # now as we are allowed only one char mismatch if the rest of the string
+            # match with its reverse (the very definition of a palindrome !!) then it's a
+            # palindrome else not
             return left_str == left_str[::-1] or right_str == right_str[::-1]
         left, right = left + 1, right - 1
 
