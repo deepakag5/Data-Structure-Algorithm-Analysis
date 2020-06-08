@@ -23,7 +23,7 @@ def findAllAnagrams(s, p):
     for i in range(ns):
         # add one more letter
         # on the right side of the window
-        s_count[ord(s[i] - ord('a'))] += 1
+        s_count[ord(s[i]) - ord('a')] += 1
 
         # remove one letter
         # from the left side of the window
