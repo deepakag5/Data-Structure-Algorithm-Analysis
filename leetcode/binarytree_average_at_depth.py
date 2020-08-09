@@ -82,3 +82,32 @@ def average_opt(node):
         result.append(avg)
 
     return result
+
+
+# Approach 2
+# BFS
+# Time: O(n) -- we must traverse all the elements in the tree to calculate average at each level
+# Space: O(m) -- where m is the max number of nodes at any level (breadth of tree)
+
+from collections import defaultdict
+
+
+def average_levels_bfs(node):
+    if not node:
+        return None
+
+    levels = defaultdict(list)
+    queue = [(root, 1)]
+    level = []
+
+    while queue:
+        node, level = queue.pop()
+        levels[level].append(node.val)
+
+        if node.left:
+            queue.append((node.left, level + 1))
+
+        if node.right:
+            queue.append((node.right, level + 1))
+
+    return [sum(levels[i]) / len(levels[i]) for i in range(1, level + 1)]
