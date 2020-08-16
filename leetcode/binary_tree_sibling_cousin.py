@@ -74,7 +74,7 @@ def print_cousins(root, node, level):
         print_cousins(root.right, node, level - 1)
 
 
-def print_both_sibling_and_cousin(root, node):
+def get_both_sibling_and_cousin(root, node):
     sibling = get_sibling(root, node)
 
     level = get_level(root, node, 1)
@@ -85,4 +85,42 @@ def print_both_sibling_and_cousin(root, node):
     print_cousins(root, node, level)
 
 
-print_both_sibling_and_cousin(root, root.left.left)
+get_both_sibling_and_cousin(root, root.left.left)
+
+
+def print_sibling_and_cousin(root, node, level):
+    if not root or level < 2:
+        return
+
+    if level == 2:
+        if root.left and root.left.val == node.val:
+            if root.right:
+                print("Sibling: " + str(root.right.val))
+            return
+
+        if root.right and root.right.val == node.val:
+            if root.left:
+                print("Sibling: " + str(root.left.val))
+            return
+
+        if root.left:
+            print("Cousin: " + str(root.left.val))
+
+        if root.right:
+            print("Cousin: " + str(root.right.val))
+
+    elif level > 2:
+        print_sibling_and_cousin(root.left, node, level - 1)
+        print_sibling_and_cousin(root.right, node, level - 1)
+
+
+def get_sibling_cousing_single_pass(root, node):
+    level = get_level(root, node, 1)
+
+    print_sibling_and_cousin(root, node, level)
+
+
+get_sibling_cousing_single_pass(root, root.left.left)
+
+# Time: O(n) we may need to visit all nodes in worst case
+# Space: O(1) we don't use any extra space (but if we consider recursion stack then space is O(n))
