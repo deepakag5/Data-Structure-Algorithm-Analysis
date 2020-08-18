@@ -88,6 +88,7 @@ def get_both_sibling_and_cousin(root, node):
 get_both_sibling_and_cousin(root, root.left.left)
 
 
+# We can get both sibling and cousing in a single pass
 def print_sibling_and_cousin(root, node, level):
     if not root or level < 2:
         return
