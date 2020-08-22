@@ -1,23 +1,29 @@
 def PreOrderRecursive(root):
-    if root:
-        print(root.val)
+    if not root:
+        return None
 
-        printPreOrder(root.left)
+    output = []
 
-        printPreOrder(root.right)
+    def dfs(root):
+        if root:
+            output.append(root.val)
+            dfs(root.left)
+            dfs(root.right)
+
+    dfs(root)
+
+    return output
 
 
 def PreOrderIterative(root):
     if not root:
         return False
 
-    stack = []
-
-    stack.append(root)
+    stack, output = [root], []
 
     while stack:
         node = stack.pop()
-        print(node.val)
+        output.append(node.val)
 
         if node.right:
             stack.append(node.right)
