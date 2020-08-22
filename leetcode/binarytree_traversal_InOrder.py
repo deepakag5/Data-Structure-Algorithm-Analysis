@@ -1,17 +1,25 @@
 def InOrderRecursive(root):
-    if root:
-        InOrderRecursive(root.left)
+    if not root:
+        return []
 
-        print(root.val)
+    output = []
 
-        InOrderRecursive(root.right)
+    def dfs(root):
+        if root:
+            dfs(root.left)
+            output.append(root.val)
+            dfs(root.right)
+
+    dfs(root)
+
+    return output
 
 
 def InOrderIterative(root):
     if not root:
-        return False
+        return []
 
-    stack = []
+    stack, output = [], []
 
     node = root
 
@@ -21,6 +29,8 @@ def InOrderIterative(root):
             node = node.left
         else:
             node = stack.pop()
-            print(node.val)
+            output.append(node.val)
 
             node = node.right
+
+    return output
